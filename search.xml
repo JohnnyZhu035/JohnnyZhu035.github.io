@@ -12,4 +12,27 @@
 </blockquote>
 ]]></content>
   </entry>
+  <entry>
+    <title>Formula Practice(1)</title>
+    <url>/2024/07/10/Formula-Practice-1/</url>
+    <content><![CDATA[<h1 id="epsilon-delta-definition-of-a-limit"><a href="#epsilon-delta-definition-of-a-limit" class="headerlink" title="$\epsilon-\delta$ definition of a limit"></a>$\epsilon-\delta$ definition of a limit</h1><blockquote>
+<p>Given a certain point $a \in R$ so that<br>for a certain function $f(x)$ exists the following  </p>
+<blockquote>
+<p>$\forall\epsilon &gt; 0$,<br>$\exists \delta &gt; 0$<br>if $|{x-a}| &lt; \delta$<br>so that $|{f(x)-A}| &lt; \delta$<br>then $\lim_{x \to a} &#x3D; A$</p>
+</blockquote>
+</blockquote>
+<h1 id="离散信号（Discrete-Signal）的时域描述和分析"><a href="#离散信号（Discrete-Signal）的时域描述和分析" class="headerlink" title="离散信号（Discrete Signal）的时域描述和分析"></a>离散信号（Discrete Signal）的时域描述和分析</h1><h2 id="信号的采样和恢复"><a href="#信号的采样和恢复" class="headerlink" title="信号的采样和恢复"></a>信号的采样和恢复</h2><p>理想化的采样过程是一个将连续信号进行脉冲调制的过程，即</p>
+<blockquote>
+<p>$x_s(t) &#x3D; x(t)\delta_T(t) &#x3D; x(t) &#x3D; \sum_{n&#x3D;-\infty}^{\infty}{\delta(t-nT_s)} &#x3D; \sum_{-\infty}^{\infty}{x(nT_s)\delta(t-nT_s)}$</p>
+</blockquote>
+<p>$x_s(t)$是经过采样处理后时间上离散化而幅值上仍然连续变化的信号，必须经过幅值上量化、编码处理等离散取值后才能成为数字信号。<br>一个连续信号离散化后，有两个问题需要讨论：（1）采样得到的信号$x_s(t)$在频域上有什么特性，它与原连续信号$x_(t)$的频域特性有什么联系？（2）连续信号采样后，它是否保留了原信号的全部信息，或者说，从采样的信号$x_s(t)$能否无失真地恢复原连续信号$x_(t)$?<br>设连续信号$x_(t)$的傅里叶变换为$X_(w)$，采样后离散信号$x_s(t)$的傅里叶变换为$X_s(w)$，已知周期性冲激串$\delta_T(t)$的傅里叶变换为$P(w) &#x3D; w_s\sum_{n&#x3D;-\infty}^{\infty}{\delta(w-nw_s)}$，由傅里叶变换的频域卷积定理有</p>
+<blockquote>
+<p>$X_s(w) &#x3D; \frac{1}{2\pi}X(w)*P(w)$</p>
+</blockquote>
+<p>将$P(w)$代入上式，并按卷积运算的性质化简后得到抽样信号$x_s(t)$的傅里叶变换为</p>
+<blockquote>
+<p>$X_s(w) &#x3D; \frac{1}{T_s}\sum_{n&#x3D;-\infty}^{\infty}{X(w-nw_s)}$</p>
+</blockquote>
+]]></content>
+  </entry>
 </search>
