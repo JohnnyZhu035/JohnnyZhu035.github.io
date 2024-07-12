@@ -53,4 +53,23 @@
 </blockquote>
 ]]></content>
   </entry>
+  <entry>
+    <title>模电学习笔记1</title>
+    <url>/2024/07/12/%E6%A8%A1%E7%94%B5%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B01/</url>
+    <content><![CDATA[<h1 id="本征半导体和杂质半导体"><a href="#本征半导体和杂质半导体" class="headerlink" title="本征半导体和杂质半导体"></a>本征半导体和杂质半导体</h1><h2 id="半导体"><a href="#半导体" class="headerlink" title="半导体"></a>半导体</h2><p>顾名思义，半导体就是指导电能力处于绝缘体和导体之间的物质，如硅，锗等。</p>
+<h2 id="本征半导体"><a href="#本征半导体" class="headerlink" title="本征半导体"></a>本征半导体</h2><h3 id="本征半导体的定义"><a href="#本征半导体的定义" class="headerlink" title="本征半导体的定义"></a>本征半导体的定义</h3><p>本征半导体就是纯净的半导体，具有晶体结构。一般是四价元素，彼此靠共价键链接。<br>在绝对零度时，其中的价电子被束缚住，没有导电性能。<br>温度升高到常温下（300K）时，一些价电子得以脱离束缚，成为自由电子，相应的共价键上留下一个空位，称为空穴</p>
+<h3 id="本征半导体的载流子"><a href="#本征半导体的载流子" class="headerlink" title="本征半导体的载流子"></a>本征半导体的载流子</h3><p>由定义可以发现，本征半导体的载流子分为两种：<br>1.自由电子(free electron)<br>2.空穴(mobile hole)</p>
+<h3 id="本征半导体的载流子浓度"><a href="#本征半导体的载流子浓度" class="headerlink" title="本征半导体的载流子浓度"></a>本征半导体的载流子浓度</h3><p>公式：</p>
+<blockquote>
+<p>$n_i=p_i=K_1T^{3/2}e^{-\frac{E_G}{2kT}}$</p>
+</blockquote>
+<p>其中：</p>
+<blockquote>
+<p>$n_i:\text{自由电子的浓度}$    $p_i:\text{空穴的浓度}$<br>$K_1:\text{系数（与材料有关）}$<br>$T:\text{绝对温度}$<br>$k:\text{玻尔兹曼常数}$<br>$E_G:\text{禁带宽度（价电子挣脱共价键所需能量）}$</p>
+</blockquote>
+<h3 id="本征半导体的导电能力"><a href="#本征半导体的导电能力" class="headerlink" title="本征半导体的导电能力"></a>本征半导体的导电能力</h3><p>有极限！半导体的导电能力有极限，如何改进？</p>
+<h2 id="杂质半导体"><a href="#杂质半导体" class="headerlink" title="杂质半导体"></a>杂质半导体</h2><h3 id="杂质半导体的定义"><a href="#杂质半导体的定义" class="headerlink" title="杂质半导体的定义"></a>杂质半导体的定义</h3><p>注意到，半导体具有扩散特性，可将少量杂质元素掺入其中<br>如正四价元素中掺入五价（或者三价）元素，将少部分正四价元素取代<br>如正五价元素掺入之后，会出现很多自由电子<br>导电能力提高上百万倍！</p>
+<h3 id="N型半导体"><a href="#N型半导体" class="headerlink" title="N型半导体"></a>N型半导体</h3><p>形成：掺入P（磷元素）<br>可出现两种载流子：自由电子（多数），空穴（少数）<br>因而自由电子是多子（多数载流子），空穴是少子（少数载流子）<br>由于带负电的自由电子占多数，其被称为 <strong><em>N（negative）型半导体</em></strong><br><strong>需要注意，每多一个自由电子，就会出现一个磷离子，因而整体依然呈现电中性</strong><br>温度敏感：由于温度影响的是本征激发，所以其对整体导电能力影响小，但是对少数载流子的影响依然大</p>
+<h3 id="P型半导体"><a href="#P型半导体" class="headerlink" title="P型半导体"></a>P型半导体</h3><h4 id="P有个洞！是空穴！所以多数载流子是空穴！其他同N型半导体"><a href="#P有个洞！是空穴！所以多数载流子是空穴！其他同N型半导体" class="headerlink" title="P有个洞！是空穴！所以多数载流子是空穴！其他同N型半导体"></a>P有个洞！是空穴！所以多数载流子是空穴！其他同N型半导体</h4>]]></content>
+  </entry>
 </search>
