@@ -13,47 +13,6 @@
 ]]></content>
   </entry>
   <entry>
-    <title>Formula Practice(1)</title>
-    <url>/2024/07/10/Formula-Practice-1/</url>
-    <content><![CDATA[<h1 id="epsilon-delta-definition-of-a-limit"><a href="#epsilon-delta-definition-of-a-limit" class="headerlink" title="$\epsilon-\delta$ definition of a limit"></a>$\epsilon-\delta$ definition of a limit</h1><blockquote>
-<p>Given a certain point $a \in R$ so that<br>for a certain function $f(x)$ exists the following  </p>
-<blockquote>
-<p>$\forall\epsilon &gt; 0$,<br>$\exists \delta &gt; 0$<br>if $|{x-a}| &lt; \delta$<br>so that $|{f(x)-A}| &lt; \delta$<br>then $\lim_{x \to a} &#x3D; A$</p>
-</blockquote>
-</blockquote>
-<h1 id="离散信号（Discrete-Signal）的时域描述和分析"><a href="#离散信号（Discrete-Signal）的时域描述和分析" class="headerlink" title="离散信号（Discrete Signal）的时域描述和分析"></a>离散信号（Discrete Signal）的时域描述和分析</h1><h2 id="信号的采样和恢复"><a href="#信号的采样和恢复" class="headerlink" title="信号的采样和恢复"></a>信号的采样和恢复</h2><p>理想化的采样过程是一个将连续信号进行脉冲调制的过程，即</p>
-<blockquote>
-<p>$x_s(t) &#x3D; x(t)\delta_T(t) &#x3D; x(t) &#x3D; \sum_{n&#x3D;-\infty}^{\infty}{\delta(t-nT_s)} &#x3D; \sum_{-\infty}^{\infty}{x(nT_s)\delta(t-nT_s)}$<br>$x_s(t)$是经过采样处理后时间上离散化而幅值上仍然连续变化的信号，必须经过幅值上量化、编码处理等离散取值后才能成为数字信号。<br>一个连续信号离散化后，有两个问题需要讨论：（1）采样得到的信号$x_s(t)$在频域上有什么特性，它与原连续信号$x_(t)$的频域特性有什么联系？（2）连续信号采样后，它是否保留了原信号的全部信息，或者说，从采样的信号$x_s(t)$能否无失真地恢复原连续信号$x(t)$?<br>设连续信号$x(t)$的傅里叶变换为$X(\omega)$，采样后离散信号$x_s(t)$的傅里叶变换为$X_s(\omega)$，已知周期性冲激串$\delta_T(t)$的傅里叶变换为$P(\omega) &#x3D; \omega_s\sum_{n&#x3D;-\infty}^{\infty}{\delta(\omega-n\omega_s)}$，由傅里叶变换的频域卷积定理有<br>$X_s(\omega) &#x3D; \frac{1}{2\pi}X(\omega)*P(\omega)$<br>将$P(\omega)$代入上式，并按卷积运算的性质化简后得到抽样信号$x_s(t)$的傅里叶变换为<br>$X_s(\omega) &#x3D; \frac{1}{T_s}\sum_{n&#x3D;-\infty}^{\infty}{X(\omega-n\omega_s)}$<br>上式表明，一个连续信号经理想采样后频谱发生了两个变化：<br>1.频谱发生了周期延拓，即原连续信号的频谱$X(\omega)$延拓到以$\pm\omega_s$，$\pm2\omega_s$…为中心的频谱，其中$\omega_s$为采样角频率<br>1.频谱的幅度乘上了一个因子$\frac{1}{T_s}$，其中$T_s$为采样周期</p>
-</blockquote>
-<h2 id="时域采样定理"><a href="#时域采样定理" class="headerlink" title="时域采样定理"></a>时域采样定理</h2><p>对于频谱函数只在有限区间$(-\omega_m,\omega_m)$为有限值的频谱受限信号$x(t)$，为了将它的抽样信号$x_s(t)$恢复为原连续信号，只要对抽样信号施以截止频率为$w\geq\omega_m$的理想低通滤波，这时在频域上得到与$x(t)$的频谱$X(\omega)$完全一样的频谱（幅度的变化很容易实现）。对应地，在时域上也就完全恢复了原连续信号$x(t)$。从图中可以看出，上述连续信号恢复过程是在$\omega_s\geq\omega_m$的前提下实现的，也即采样频率至少为原连续信号所含最高频率成分的2倍时实现的。这时，就能够无失真地从抽样信号中恢复原连续信号，或者说，采样过程完全保留了原信号的全部信息。<br>当$\omega_s&lt;2\omega_m$时，在频域就会出现频谱混叠现象。施以理想低通滤波后不能得到与$X(\omega)$完全一样的频谱。可以想象，在时域也就不能无失真地恢复原连续信号$x(t)$由此，得出关于采样频率如何取的结论，这就是著名的时域采样定理（香农定理）：</p>
-<p>对于频谱受限的信号$x(t)$，如果其最高频率分量为$\omega_m$，为了保留原信号的全部信息，或能无失真地恢复原信号，在通过采样得到离散信号时，其采样频率应满足$\omega_s\geq2\omega_m$。通常把最低允许的采样频率$\omega_s&#x3D;2\omega_m$称为奈奎斯特（Nyquist）频率。</p>
-<p>为了从抽样信号$x_s(t)$中恢复原信号$x(t)$，可将抽样信号的频谱$X_s(\omega)$乘上幅度为$T_s$的矩形窗信号</p>
-<blockquote>
-<p>$G(\omega)&#x3D;\begin{cases}T_s&amp;|\omega|\leq\frac{\omega_s}{2} \\ 0&amp;|\omega|&gt;\frac{\omega_s}{2}\end{cases}$</p>
-</blockquote>
-<p>它将原信号的频谱$X(\omega)$从$X_s(w)$中完整的提取出来，即</p>
-<blockquote>
-<p>$X(\omega)&#x3D;X_s(\omega)G(\omega)$</p>
-</blockquote>
-<p>由傅里叶时域卷积性质有：</p>
-<blockquote>
-<p>$x(t)&#x3D;x_s(t)*g(t)$</p>
-</blockquote>
-<p>而</p>
-<blockquote>
-<p>$g(t)&#x3D;Sa(\frac{\omega_s}{2}t)$</p>
-</blockquote>
-<p>所以</p>
-<blockquote>
-<p>$x(t)&#x3D;\sum_{n&#x3D;-\infty}^{\infty}{x(nT_s)\delta(t-nT_s)}*Sa(\frac{\omega}{2}t)&#x3D;\sum_{n&#x3D;-\infty}^{\infty}{x(nT_s)Sa(\frac{\omega_s}{2}(t-nT_s))}$</p>
-</blockquote>
-<p>如果恰好$\omega_m&#x3D;\frac{1}{2}\omega_s$，则</p>
-<blockquote>
-<p>$x(t)&#x3D;\sum_{-\infty}^{\infty}{x(nT_s)Sa[\omega_m(t-nT_s)]}&#x3D;\sum_{n&#x3D;-\infty}^{\infty}{x(nT_s)\frac{sin\omega_m(t-nT_s)}{\omega_m(t-nT_s)}}$</p>
-</blockquote>
-]]></content>
-  </entry>
-  <entry>
     <title>模电学习笔记1</title>
     <url>/2024/07/12/%E6%A8%A1%E7%94%B5%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B01/</url>
     <content><![CDATA[<h1 id="本征半导体和杂质半导体"><a href="#本征半导体和杂质半导体" class="headerlink" title="本征半导体和杂质半导体"></a>本征半导体和杂质半导体</h1><h2 id="半导体"><a href="#半导体" class="headerlink" title="半导体"></a>半导体</h2><p>顾名思义，半导体就是指导电能力处于绝缘体和导体之间的物质，如硅，锗等。</p>
@@ -96,6 +55,91 @@
 <p>$i&#x3D;I_s(e^{\frac{u}{U_T}}-1)$</p>
 </blockquote>
 <p>常温下（$T&#x3D;300K$）时，$U_T\approx26mV$<br>称$U_T$为温度的电压当量</p>
+]]></content>
+  </entry>
+  <entry>
+    <title>Formula Practice(1)</title>
+    <url>/2024/07/10/Formula-Practice-1/</url>
+    <content><![CDATA[<h1 id="epsilon-delta-definition-of-a-limit"><a href="#epsilon-delta-definition-of-a-limit" class="headerlink" title="$\epsilon-\delta$ definition of a limit"></a>$\epsilon-\delta$ definition of a limit</h1><blockquote>
+<p>Given a certain point $a \in R$ so that<br>for a certain function $f(x)$ exists the following  </p>
+<blockquote>
+<p>$\forall\epsilon &gt; 0$,<br>$\exists \delta &gt; 0$<br>if $|{x-a}| &lt; \delta$<br>so that $|{f(x)-A}| &lt; \delta$<br>then $\lim_{x \to a} &#x3D; A$</p>
+</blockquote>
+</blockquote>
+<h1 id="离散信号（Discrete-Signal）的时域描述和分析"><a href="#离散信号（Discrete-Signal）的时域描述和分析" class="headerlink" title="离散信号（Discrete Signal）的时域描述和分析"></a>离散信号（Discrete Signal）的时域描述和分析</h1><h2 id="信号的采样和恢复"><a href="#信号的采样和恢复" class="headerlink" title="信号的采样和恢复"></a>信号的采样和恢复</h2><p>理想化的采样过程是一个将连续信号进行脉冲调制的过程，即</p>
+<blockquote>
+<p>$x_s(t) &#x3D; x(t)\delta_T(t) &#x3D; x(t) &#x3D; \sum_{n&#x3D;-\infty}^{\infty}{\delta(t-nT_s)} &#x3D; \sum_{-\infty}^{\infty}{x(nT_s)\delta(t-nT_s)}$<br>$x_s(t)$是经过采样处理后时间上离散化而幅值上仍然连续变化的信号，必须经过幅值上量化、编码处理等离散取值后才能成为数字信号。<br>一个连续信号离散化后，有两个问题需要讨论：（1）采样得到的信号$x_s(t)$在频域上有什么特性，它与原连续信号$x_(t)$的频域特性有什么联系？（2）连续信号采样后，它是否保留了原信号的全部信息，或者说，从采样的信号$x_s(t)$能否无失真地恢复原连续信号$x(t)$?<br>设连续信号$x(t)$的傅里叶变换为$X(\omega)$，采样后离散信号$x_s(t)$的傅里叶变换为$X_s(\omega)$，已知周期性冲激串$\delta_T(t)$的傅里叶变换为$P(\omega) &#x3D; \omega_s\sum_{n&#x3D;-\infty}^{\infty}{\delta(\omega-n\omega_s)}$，由傅里叶变换的频域卷积定理有<br>$X_s(\omega) &#x3D; \frac{1}{2\pi}X(\omega)*P(\omega)$<br>将$P(\omega)$代入上式，并按卷积运算的性质化简后得到抽样信号$x_s(t)$的傅里叶变换为<br>$X_s(\omega) &#x3D; \frac{1}{T_s}\sum_{n&#x3D;-\infty}^{\infty}{X(\omega-n\omega_s)}$<br>上式表明，一个连续信号经理想采样后频谱发生了两个变化：<br>1.频谱发生了周期延拓，即原连续信号的频谱$X(\omega)$延拓到以$\pm\omega_s$，$\pm2\omega_s$…为中心的频谱，其中$\omega_s$为采样角频率<br>1.频谱的幅度乘上了一个因子$\frac{1}{T_s}$，其中$T_s$为采样周期</p>
+</blockquote>
+<h2 id="时域采样定理"><a href="#时域采样定理" class="headerlink" title="时域采样定理"></a>时域采样定理</h2><p>对于频谱函数只在有限区间$(-\omega_m,\omega_m)$为有限值的频谱受限信号$x(t)$，为了将它的抽样信号$x_s(t)$恢复为原连续信号，只要对抽样信号施以截止频率为$w\geq\omega_m$的理想低通滤波，这时在频域上得到与$x(t)$的频谱$X(\omega)$完全一样的频谱（幅度的变化很容易实现）。对应地，在时域上也就完全恢复了原连续信号$x(t)$。从图中可以看出，上述连续信号恢复过程是在$\omega_s\geq\omega_m$的前提下实现的，也即采样频率至少为原连续信号所含最高频率成分的2倍时实现的。这时，就能够无失真地从抽样信号中恢复原连续信号，或者说，采样过程完全保留了原信号的全部信息。<br>当$\omega_s&lt;2\omega_m$时，在频域就会出现频谱混叠现象。施以理想低通滤波后不能得到与$X(\omega)$完全一样的频谱。可以想象，在时域也就不能无失真地恢复原连续信号$x(t)$由此，得出关于采样频率如何取的结论，这就是著名的时域采样定理（香农定理）：</p>
+<p>对于频谱受限的信号$x(t)$，如果其最高频率分量为$\omega_m$，为了保留原信号的全部信息，或能无失真地恢复原信号，在通过采样得到离散信号时，其采样频率应满足$\omega_s\geq2\omega_m$。通常把最低允许的采样频率$\omega_s&#x3D;2\omega_m$称为奈奎斯特（Nyquist）频率。</p>
+<p>为了从抽样信号$x_s(t)$中恢复原信号$x(t)$，可将抽样信号的频谱$X_s(\omega)$乘上幅度为$T_s$的矩形窗信号</p>
+<blockquote>
+<p>$G(\omega)&#x3D;\begin{cases}T_s&amp;|\omega|\leq\frac{\omega_s}{2} \\ 0&amp;|\omega|&gt;\frac{\omega_s}{2}\end{cases}$</p>
+</blockquote>
+<p>它将原信号的频谱$X(\omega)$从$X_s(w)$中完整的提取出来，即</p>
+<blockquote>
+<p>$X(\omega)&#x3D;X_s(\omega)G(\omega)$</p>
+</blockquote>
+<p>由傅里叶时域卷积性质有：</p>
+<blockquote>
+<p>$x(t)&#x3D;x_s(t)*g(t)$</p>
+</blockquote>
+<p>而</p>
+<blockquote>
+<p>$g(t)&#x3D;Sa(\frac{\omega_s}{2}t)$</p>
+</blockquote>
+<p>所以</p>
+<blockquote>
+<p>$x(t)&#x3D;\sum_{n&#x3D;-\infty}^{\infty}{x(nT_s)\delta(t-nT_s)}*Sa(\frac{\omega}{2}t)&#x3D;\sum_{n&#x3D;-\infty}^{\infty}{x(nT_s)Sa(\frac{\omega_s}{2}(t-nT_s))}$</p>
+</blockquote>
+<p>如果恰好$\omega_m&#x3D;\frac{1}{2}\omega_s$，则</p>
+<blockquote>
+<p>$x(t)&#x3D;\sum_{-\infty}^{\infty}{x(nT_s)Sa[\omega_m(t-nT_s)]}&#x3D;\sum_{n&#x3D;-\infty}^{\infty}{x(nT_s)\frac{sin\omega_m(t-nT_s)}{\omega_m(t-nT_s)}}$</p>
+</blockquote>
+]]></content>
+  </entry>
+  <entry>
+    <title>Reading Paper:factor graphs and the sum product algorithm</title>
+    <url>/2024/07/14/Reading-Paper-factor-graphs-and-the-sum-product-algorithm/</url>
+    <content><![CDATA[<h2 id="Factor-Graph-因子图"><a href="#Factor-Graph-因子图" class="headerlink" title="Factor Graph(因子图)"></a>Factor Graph(因子图)</h2><h3 id="composition"><a href="#composition" class="headerlink" title="composition"></a>composition</h3><p>Factor graphs are composed of two parts:<em>(random)variables and factors</em><br>e.g. a funtion imply(A,B) has the meaning of if A,then B<br>here represents two variables: A:Dave is drunk B:Dave can’t drive<br>as is obvious,if a person is drunk,then he(she) can’t drive<br>hence a simple$f(drunk,can’t\space drive)$represents the meaning.</p>
+<h3 id="weight-of-functions–probability"><a href="#weight-of-functions–probability" class="headerlink" title="weight of functions–probability"></a>weight of functions–probability</h3><p><em>To define the probability of a possible world,we define through factor functions</em><br><strong>weights</strong>are given to different factor funtions,to express the relative influence of each factor on the probability.Factors can be given larger weight to imply a higher impact on probability.</p>
+<blockquote>
+<p><strong>Amazingly,when I refer to a post at <a href="http://deepdive.stanford.edu/assets/factor_graph.pdf">http://deepdive.stanford.edu/assets/factor_graph.pdf</a> to look up for definitions,the post contains the link of the <em>Factor Graphs and the Sum-Product Algorithm</em> ,which really surprises me</strong></p>
+</blockquote>
+<blockquote>
+<p>the <em>Factor Graphs and the Sum-Product Algorithm</em> mentioned the factor graph has the potential to unify modeling and signal processing tasks that are often treated separately in current systems,then if now,some 20 years have passed,any development based on it?</p>
+</blockquote>
+<h3 id="history–why-factor-graph"><a href="#history–why-factor-graph" class="headerlink" title="history–why factor graph"></a>history–<em>why factor graph</em></h3><p>factor graphs are a generalization of the “Tanner graphs”named after Tanner.He introduced the bipartite graphs(dividing group of nodes into two parts connected by edges)to generalize family of codes performing low-density-parity-check(LDPC) and described the sum-product algorithm.Tanner and Wiberg respectively introduced the “visible” and “hidden”variables.However,by applying these models to functions,the factor graph becomes a higher abstraction.Viewing from the perspective of factor graph,the Tanner graph represents a particular factorization of the code.</p>
+<h4 id="marginal-product-of-functions-not-in-this-algorithm-unfortunately"><a href="#marginal-product-of-functions-not-in-this-algorithm-unfortunately" class="headerlink" title="marginal product of functions(not in this algorithm,unfortunately)"></a><em>marginal product of functions</em>(not in this algorithm,unfortunately)</h4><p>The marginal product stems from the total product,which describes that for a set of variables(e.g.$x_1,x_2,x_3$),the overall output is $F(x_1,x_2,x_3)$.Set the other inputs fixed(say fix $x_2,x_3$ are fixed to $a,b$) and simply vary one input(say vary $x_1$),then the output becomes $F(x_1,a,b)$,which,in other words,can be described as the total product function $TP(x_1)$.<br>The marginal product function describes the slope of the total product funtion.If the total product function is differentiable,then the marginal product can be described as$MP(x_1)&#x3D;\frac{dTP(x_1)}{dx_1}$<br>btw,the average product of a function is described as $AP(x_1)&#x3D;\frac{TP(x_1)}{x_1}$</p>
+<h2 id="Marginal-Functions-Factor-Graphs-and-the-Sum-Product-Algorithm"><a href="#Marginal-Functions-Factor-Graphs-and-the-Sum-Product-Algorithm" class="headerlink" title="Marginal Functions,Factor Graphs and the Sum-Product Algorithm"></a>Marginal Functions,Factor Graphs and the Sum-Product Algorithm</h2><p>Let n variables be $x_1,x_2,…,x_n$,each $x_i \in A_i$.<br>Let $g(x_1,…,x_n)$be an R-valued function of variables $x_1,x_2,,…,x_n$<br>so that the function $g$ is with domain $S&#x3D;A_1 \times A_2 \times … \times A_n$ and codomain $R$.<br>$S$ is called the <em>configuration space</em>for the given variables.Each element is a particular <em>configuration</em> of the variables<br>associated with every function $g(x1,…,x_n)$are $n$ marginal functions $g_i(x_i)$<br><strong>And for each $a\in A_i$,the value of $g_i(a)$ is obtained by summing the value of $g(x_1,…,x_n)$over all configurations of the variables that have $x_i&#x3D;a$</strong><br>The paper proposes a nontraditional notation–the”not-sum” or <em>summary</em>.For example,if $g$ is a function of variables$x_1,x_2,x_3$,then the <em>summary</em> for $x_2$ can be denoted by:</p>
+<blockquote>
+<p>$g_2(x_2)&#x3D;\sum_{\sim{x_2}}{g(x_1,x_2,x_3)}&#x3D;\sum_{x_1\in A_1}{\sum_{x_3\in A_3}{g(x_1,x_2,x_3)}}$</p>
+</blockquote>
+<p>in this sense:</p>
+<blockquote>
+<p>$g_i(x_i)&#x3D;\sum_{\sim{x_i}}{g(x_1,…,x_n)}$</p>
+</blockquote>
+<p>that means the $i$th marginal function associated with $g$ is the <em>summary</em> for $x_i$ of $g$<br>In this paper,another topic is about transforming global functions into the product of several global functions.<br>Let $g(x_1,…,x_n)$ factor into the product of several <em>local functions</em> $f_i$,each having some subset of ${x_1,…,x_n}$ as arguments (e.g. $J&#x3D;{1,2,3,4,5}, X_1&#x3D;{x_1,x_3,x_5},X_2&#x3D;{x_2,x_3}$).</p>
+<blockquote>
+<p>$g(x_1,…,x_n)&#x3D;\prod_{j\in J}{f_j(X_j)}$</p>
+</blockquote>
+<p>Followed by several examples of factor graphs<br>A key is that <em><strong>a cycle-free factor graph not only encodes in its structure but also encodes arithmetic expressions by which the marginal functions associated with the global functions may be computed.</strong></em></p>
+<h2 id="Core-of-the-algorithm"><a href="#Core-of-the-algorithm" class="headerlink" title="Core of the algorithm"></a>Core of the algorithm</h2><h3 id="Sum-And-Product"><a href="#Sum-And-Product" class="headerlink" title="Sum And Product"></a>Sum And Product</h3><p>As its name suggests,the algorithm can be derived into two parts:the sum part and the product part,which cna be transformed into each other with ease.Noticably,the graphical demonstration of it involves the factor graph.</p>
+<h3 id="Converted-factor-graph–expression-trees"><a href="#Converted-factor-graph–expression-trees" class="headerlink" title="Converted factor graph–expression trees"></a>Converted factor graph–expression trees</h3><p>expression trees are a kind of tree that contain arithmetic operators($+,\times$…etc.)in internal vertices and variables or constants in leaf vertices.<br>An extended version of the expression tree is proposed,using <em>functions</em> besides variables and constants.<br>replace variable node with a product operator.<br>replace factor node with a “form product” and multiply by”$f$” operator.</p>
+<blockquote>
+<p>my own interpretation:<br><em>both</em><br><strong>bottom-up approach</strong><br>$f$ is the local function that operates<br>$x$ works as variables</p>
+</blockquote>
+<blockquote>
+<p><em>In expression tree</em><br>the tree itself expresses the algorithm<br>$+ \text{,and}\times$ work as operators to combine these nodes together</p>
+</blockquote>
+<blockquote>
+<p><em>In rooted tree</em><br>expresses the process and relationship between nodes<br>factor nodes and variable nodes come in an alternating form.</p>
+</blockquote>
+<h3 id="Sum-Product-Updating-Rule"><a href="#Sum-Product-Updating-Rule" class="headerlink" title="Sum Product Updating Rule"></a>Sum Product Updating Rule</h3><h4 id="update"><a href="#update" class="headerlink" title="update"></a>update</h4><p>a node receives all messages from nodes adjacent to it except for the node to send message<br>In this approach,all adjacent nodes of node $v$ are denoted as $n(v)$.<br>Let the message be $\mu_{x\to f}{(x)}$ ,denoting message sent from node $f$ to node $x$,and $\mu_{f\to x}{(x)}$ be message sent from node $x$ to node $f$.<br>The rules are as follows:<br><em>variable to local function</em><br>$\mu_{x\to f}{(x)}&#x3D;\prod_{h\in n(x) \backslash {f}}{\mu_{h\to x}{(x)}}$<br>simply speaking:to operate product on all messages from other nodes and send them to the descending factor node $f$.<br><em>local function to variable</em><br>$\mu_{f\to x}{(x)}&#x3D;\sum_{\sim{x}}{(f(X)\prod_{y\in n(f)\backslash{x}}{\mu_{y\to f}{(y)}})}$<br>simply put:to operate product of all messages received and times the local function,sum up the results with index $\sim{x}$<br>$X&#x3D;n(f)$ is the set of arguments of $f$</p>
+<h4 id="end-termination"><a href="#end-termination" class="headerlink" title="end(termination)"></a>end(termination)</h4><p>Representing the arithmetic form with factor graph,we can easily see that for a variable node $x_i$,its”summary”$g_i(x_i)$ can be described as the product of all messages sent from all edges to the specific node.<br>For example,if a variable node $x_1$ is connected to factor nodes $f_1$ and $f_3$,then the marginal function of $x_1$ can be denoted as</p>
+<blockquote>
+<p>$g_1(x_1)&#x3D;\mu_{f_1\to x_1}{(x_1)}\mu_{f_3\to x_1}{(x_1)}$</p>
+</blockquote>
 ]]></content>
   </entry>
 </search>
