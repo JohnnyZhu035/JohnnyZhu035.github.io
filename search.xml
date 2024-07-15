@@ -205,4 +205,48 @@ connected FG model [23], in part to the approximations such as GAI. Second, the 
         <tag>paper</tag>
       </tags>
   </entry>
+  <entry>
+    <title>compensation:KL divergence</title>
+    <url>/2024/07/15/compensation-KL-divergence/</url>
+    <content><![CDATA[<h2 id="Reason"><a href="#Reason" class="headerlink" title="Reason"></a>Reason</h2><p>$\quad$In the Expectation Propagation(EP) algorithm,the KL (Kullback-Leibler) divergence plays an important role. Expectation Propagation is a technique used for approximate inference, commonly employed in probabilistic graphical models. In the Expectation Propagation algorithm, the KL divergence is used to measure the difference between two probability distributions in order to update variational parameters during the approximate inference process.<br>$\quad$Specifically, the Expectation Propagation algorithm approximates the <em>posterior</em> distribution by iteratively updating variational parameters. In each iteration, the KL divergence is used to quantify the <strong>discrepancy</strong> between the approximate posterior distribution and the true posterior distribution. By minimizing the KL divergence, the approximate posterior distribution can be brought closer to the true posterior distribution,enhancing the accuracy of the approximate inference.</p>
+<h2 id="Definition"><a href="#Definition" class="headerlink" title="Definition"></a>Definition</h2><h3 id="What’s-Information-What’s-Entropy"><a href="#What’s-Information-What’s-Entropy" class="headerlink" title="What’s Information?What’s Entropy?"></a>What’s Information?What’s Entropy?</h3><p>$\quad$We use information function $I(x)$ to measure the relationship between information and possibilities.For a certain event $x$,if the possibility that it happens is $P(x)$,then we define $I(x)$ as:</p>
+<blockquote>
+<p>$I(x)&#x3D;-\log{(P(x))}$</p>
+</blockquote>
+<p>or</p>
+<blockquote>
+<p>$I(x)&#x3D;\log{\frac{1}{(P(x))}}$</p>
+</blockquote>
+<p>Intuitively,the more possible,the less information.Match!<br>To sum up all information $I(x_i)$,we get the entropy!</p>
+<blockquote>
+<p>$H(X)&#x3D;\displaystyle \sum_{i&#x3D;1}^{n}{I(x_i)P(x_i)}$</p>
+</blockquote>
+<p>or</p>
+<blockquote>
+<p>$H(X)&#x3D;\displaystyle -\sum_{i&#x3D;1}^{n}{P(x_i)\log{(P(x_i))}}$</p>
+</blockquote>
+<p>where $X$ is a set with $n$ elements ${x_1,x_2,…,x_n}$,$x_i$ denotes a test.</p>
+<h3 id="What’s-KL-Divergence"><a href="#What’s-KL-Divergence" class="headerlink" title="What’s KL Divergence?"></a>What’s KL Divergence?</h3><p>KL(Kullback Leibler) divergence(or <em>relative entropy</em>) represents an asymmetric relationship between two probability distributions.</p>
+<blockquote>
+<p>$D_{KL}{(P||Q)}&#x3D;\sum P(x)\log{}\frac{P(x)}{Q(x)}$ (in discrete scene)<br>$D_{KL}{(P||Q)}&#x3D;\int P(x)\log{}\frac{P(x)}{Q(x)}dx$(in continuous scene)</p>
+</blockquote>
+<p>where P and Q are two distinct probability distributions on random variable $X$.</p>
+<h3 id="What’s-Cross-Entropy"><a href="#What’s-Cross-Entropy" class="headerlink" title="What’s Cross Entropy?"></a>What’s Cross Entropy?</h3><p>When we take a closer look at the KL divergence,we can break the $\log$ down into two pieces(take the discrete form as an example):</p>
+<blockquote>
+<p>$D_{KL}{(P||Q)}&#x3D;\displaystyle \sum{P(x)\log(P(x))} -\sum{P(x)\log(q(x))}$</p>
+</blockquote>
+<p>which can be further divided into:</p>
+<blockquote>
+<p>$-H(P(X))+[-\sum{P(x)\log{(q(x))}}]$</p>
+</blockquote>
+<p>where we define the <em>cross entropy</em> of $P$ and $Q$ as:</p>
+<blockquote>
+<p>$H{(P,Q)}&#x3D;\sum{-P(x)\log(Q(x))}$</p>
+</blockquote>
+<h2 id="Further-Application"><a href="#Further-Application" class="headerlink" title="Further Application"></a>Further Application</h2><p><em><strong>To Be Continued</strong></em></p>
+]]></content>
+      <tags>
+        <tag>Learning</tag>
+      </tags>
+  </entry>
 </search>
