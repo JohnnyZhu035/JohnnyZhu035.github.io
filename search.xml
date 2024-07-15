@@ -143,40 +143,40 @@
 ]]></content>
   </entry>
   <entry>
-    <title>Reading Paper:Belief-selective Propagation Detection for MIMO systems</title>
+    <title>Reading Paper:Belief-selective Propagation Detection for MIMO Systems</title>
     <url>/2024/07/14/Reading-Paper-Belief-selective-Propagation-Detection-for-MIMO-systems/</url>
-    <content><![CDATA[<h2 id="Prerequisites"><a href="#Prerequisites" class="headerlink" title="Prerequisites"></a>Prerequisites</h2><p>For a first year student who have been arranged to not take courses like <em>probability theory</em>,the famed Bayesian things are not familiar to me at all.So I prepare some prerequisite knowledge here!</p>
-<h3 id="Bayes’-theorem"><a href="#Bayes’-theorem" class="headerlink" title="Bayes’ theorem"></a>Bayes’ theorem</h3><p>In this theorem,we define two events $A$ and $B$,each having $P(A),P(B)$ to denote their possibilities of happening.The Bayes’ theorem considers the influence on the possibilities of each other.We denote event that if B happens,A also happens using $A|B$.<br>The Bayes’ theorem tells us that</p>
+    <content><![CDATA[<h1 id="reading-paper-2-Belief-selective-Propagation-Detection-for-MIMO-Systems"><a href="#reading-paper-2-Belief-selective-Propagation-Detection-for-MIMO-Systems" class="headerlink" title="reading paper(2):Belief-selective Propagation Detection for MIMO Systems"></a>reading paper(2):Belief-selective Propagation Detection for MIMO Systems</h1><h2 id="Prerequisites"><a href="#Prerequisites" class="headerlink" title="Prerequisites"></a>Prerequisites</h2><p>$\quad$For a first year student who have been arranged to not take courses like <em>probability theory</em>,the famed Bayesian things are not familiar to me at all.So I prepare some prerequisite knowledge here!</p>
+<h3 id="Bayes’-theorem"><a href="#Bayes’-theorem" class="headerlink" title="Bayes’ theorem"></a>Bayes’ theorem</h3><p>$\quad$In this theorem,we define two events $A$ and $B$,each having $P(A),P(B)$ to denote their possibilities of happening.The Bayes’ theorem considers the influence on the possibilities of each other.We denote event that if B happens,A also happens using $A|B$.<br>The Bayes’ theorem tells us that</p>
 <blockquote>
 <p>$P(A|B)&#x3D;\frac{P(B|A)P(A)}{P(B)}$</p>
 </blockquote>
-<p>We give each possibility in this formula a name:</p>
+<p>we give each possibility in this formula<br>a name:</p>
 <blockquote>
 <p>$P(A)$ is $A$’s prior probability(which means it does not take any related event into account,only considering the general case)<br>$P(A|B)$ is $A$’s posterior probability(which means that after B happens,the possibility that A happens should be refreshed)</p>
 </blockquote>
-<h3 id="Maximum-Likelihood-Estimate-MLE"><a href="#Maximum-Likelihood-Estimate-MLE" class="headerlink" title="Maximum Likelihood Estimate(MLE)"></a>Maximum Likelihood Estimate(MLE)</h3><p>for a random test(like flipping coins)<br>define the possibility of event <em>Heads</em> $\theta$,then event <em>Tails</em> is defined as $(1-\theta)$.in one test,<em>Heads</em> happen $a$ times and <em>Tail</em> happen $b$ times.We define the possibilty that this test happens as $N$.Define the possibility $P(N|\theta)$as the <em>likelihood function</em> $L(\theta)$:</p>
+<h3 id="Maximum-Likelihood-Estimate-MLE"><a href="#Maximum-Likelihood-Estimate-MLE" class="headerlink" title="Maximum Likelihood Estimate(MLE)"></a>Maximum Likelihood Estimate(MLE)</h3><p>$\quad$For a random test(like flipping coins)<br>define the possibility of event <em>Heads</em> $\theta$,then event <em>Tails</em> is defined as $(1-\theta)$.in one test,<em>Heads</em> happen $a$ times and <em>Tail</em> happen $b$ times.We define the possibilty that this test happens as $N$.Define the possibility $P(N|\theta)$as the <em>likelihood function</em> $L(\theta)$:</p>
 <blockquote>
 <p>$L(\theta)&#x3D;\theta^a*(1-\theta)^b$</p>
 </blockquote>
-<p>Where we need to find the most possible point to let the function have its extreme point.Take the logarithm on both sides of the function equation:</p>
+<p>where we need to find the most possible point to let the function have its extreme point.Take the logarithm on both sides of the function equation:</p>
 <blockquote>
 <p>$\log{(L(\theta))}&#x3D;a\log{(\theta)}+b\log{(1-\theta)}$</p>
 </blockquote>
-<p>Take the derivative of it,we can easily get the extreme point!</p>
-<h3 id="Maximum-a-Posterioris-Estimate-MAPE"><a href="#Maximum-a-Posterioris-Estimate-MAPE" class="headerlink" title="Maximum a Posterioris Estimate(MAPE)"></a>Maximum <em>a Posterioris</em> Estimate(MAPE)</h3><p>With the two parts of knowledge in mind,we are well ready to get our hands on Maximum <em>a posterioris</em>!<br>As its name suggests,<em>a posterioris</em> means after.Then  estimating based on prior tests is the core of this method.<br>We define a set of tests $S$,and the desired possibility of the event $\theta$ is happening is defined as</p>
+<p>take the derivative of it,we can easily get the extreme point!</p>
+<h3 id="Maximum-a-Posterioris-Estimate-MAPE"><a href="#Maximum-a-Posterioris-Estimate-MAPE" class="headerlink" title="Maximum a Posterioris Estimate(MAPE)"></a>Maximum <em>a Posterioris</em> Estimate(MAPE)</h3><p>$\quad$With the two parts of knowledge in mind,we are well ready to get our hands on Maximum <em>a posterioris</em>!<br>$\quad$As its name suggests,<em>a posterioris</em> means after.Then  estimating based on prior tests is the core of this method.<br>$\quad$We define a set of tests $S$,and the desired possibility of the event $\theta$ is happening is defined as</p>
 <blockquote>
 <p>$P(\theta|S)$</p>
 </blockquote>
-<p>According to the Bayes’ theorem,the possibility above can be described as</p>
+<p>$\quad$According to the Bayes’ theorem,the possibility above can be described as</p>
 <blockquote>
 <p>$P(\theta|S)&#x3D;\frac{P(S|\theta)P(\theta)}{P(S)}$</p>
 </blockquote>
-<p>Obviously,the $P(S|\theta)$ refers  to the <em>most likelihood</em> function $L(\theta)$.Easily,we can calculate the MAP possibility.</p>
+<p>$\quad$Obviously,the $P(S|\theta)$ refers  to the <em>most likelihood</em> function $L(\theta)$.Easily,we can calculate the MAP possibility.</p>
 <h2 id="Abstract"><a href="#Abstract" class="headerlink" title="Abstract"></a>Abstract</h2><p>simplifying calculations will cost performance quality?<br>utilizing <em>trusted</em> incoming messages with <em>a priori</em> messages for updates.<br>proposed two strategies:</p>
 <blockquote>
-<p>symbol-based truncation(ST)(基于特征的去杂)<br>edge-based simplification(ES)(基于边缘的简化？)<br>conveniently tuning parameters can make great trade-off between performance and complexity</p>
+<p>symbol-based truncation(ST)(基于特征的去杂)<br>edge-based simplification(ES)(基于边缘的简化)<br>conveniently tuning parameters can make great trade-off between performance and complexity</p>
 </blockquote>
-<h2 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h2><p>MIMO enables high spectrum-efficiency and energy-efficiency.<br>Current <em>maximum a posteriori</em> (MAP) detection(最大后验检测) or the <em>maximum likelihood</em> detection(极大似然检测) can achieve minimum error probability while costing exponential complexity with modulation order and MIMO scale.<br>Sphere decoder(SD) restricts candidate symbols to ones within a sphere (depth first) or a list  of size $K$ (width first).It performs well in small-size MIMO, while for large-scale MIMO it suffers cubic($\mathcal{O}^3$) time complexity.<br>For large-scale MIMO,linear detectors like <em>zero-forcing</em>(ZF) detector or <em>linear minimum mean square error</em>(LMMSE) detector are often applied,performing way worse than the previous methods.<br>Another problem is the matrix inversion,bringing excessive complexity.Even new methods like the <em>Neumann series approximation</em> can’t fully exploit the MIMO benefits.<br><em>Finally</em>,the Belief Propagation(BP)detector based on the Bayes’ rule is proposed.It can delever near-optimal performance and holds a soft-input soft-output character.And it can be easily applied to various hardware and scaled for applications.<br>The BP method achieves near-optimal when in small-to medium MIMO but costs exponentially increasing complexity.<br>The work in this paper focuses on both reducing the complexity and maintaining performance.</p>
+<h2 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h2><p>$\quad$MIMO enables high spectrum-efficiency and energy-efficiency.<br>$\quad$Current <em>maximum a posteriori</em> (MAP) detection(最大后验检测) or the <em>maximum likelihood</em> detection(极大似然检测) can achieve minimum error probability while costing exponential complexity with modulation order and MIMO scale.<br>$\quad$Sphere decoder(SD) restricts candidate symbols to ones within a sphere (depth first) or a list  of size $K$ (width first).It performs well in small-size MIMO, while for large-scale MIMO it suffers cubic($\mathcal{O}^3$) time complexity.<br>$\quad$For large-scale MIMO,linear detectors like <em>zero-forcing</em>(ZF) detector or <em>linear minimum mean square error</em>(LMMSE) detector are often applied,performing way worse than the previous methods.<br>$\quad$Another problem is the matrix inversion,bringing excessive complexity.Even new methods like the <em>Neumann series approximation</em> can’t fully exploit the MIMO benefits.<br>$\quad$<em>Finally</em>,the Belief Propagation(BP)detector based on the Bayes’ tule is proposed.It can delever near-optimal performance and holds a soft-input soft-output character.And it can be easily applied to various hardware and scaled for applications.<br>$\quad$The BP method achieves near-optimal when in small-to medium MIMO but costs exponentially increasing complexity.<br>$\quad$The work in this paper focuses on both reducing the complexity and maintaining performance.</p>
 <!--So far, the design of efficient MIMO BP detectors remains challenging. First, the existing
  BP detectors suffer an aggravated performance error floor in relatively high signal-to-noise ratio
  (SNR) region, due in part to the well-known impact of the inherent loopy structure for the full
@@ -184,9 +184,22 @@ connected FG model [23], in part to the approximations such as GAI. Second, the 
  existing BP detectors is still high and not flexible enough for various applications. These multiple
  challenges motivate us(us?) to think of an approach which can reduce the detection complexity while
  mitigating the error floor towards better performance.-->
-<p> This aim is mainly achieved by introducing the Belief-selective Propagation(BsP),utilizing <em>a priori</em> (AP) probabilities to update incoming messages to output messages.This approach avoids propagating “low belief” messages.<br> QAM:Quadrature Amplitude Modulation<br> $s&#x3D;[s_1,s_2,…,s_N{_t}]^T$<br> <!--is a complex channel coefficient following the zero-mean and unit-variance Gaussian distribution
- Why this is less unlikely to happen in the future communication?-->
- </p>
+<p> $\quad$This aim is mainly achieved by introducing the Belief-selective Propagation(BsP),utilizing <em>a priori</em> (AP) probabilities to update incoming messages to output messages.This approach avoids propagating “low belief” messages.</p>
+<h2 id="Preliminaries"><a href="#Preliminaries" class="headerlink" title="Preliminaries"></a>Preliminaries</h2><h3 id="System-Model"><a href="#System-Model" class="headerlink" title="System Model"></a>System Model</h3><p>QAM:Quadrature Amplitude Modulation<br>$s&#x3D;[s_1,s_2,…,s_N{_t}]^T$<br>The flat-fading complex MIMO channel matrix $\bold {H}$ is a $N_r\times N_t$ matrix:</p>
+<blockquote>
+<p>$\bold {H}&#x3D;[\bold {h_1}^{T},\bold {h_2}^{T},…\bold {h_{N_r}^{T}}]^T$</p>
+</blockquote>
+<p>where each component $\bold {h_i}$ is a complex channel coefficient.<br> <!--is a complex channel coefficient following the zero-mean and unit-variance Gaussian distribution
+ Why this is less unlikely to happen in the future communication?--></p>
+<h3 id="BP-Detection-With-the-FG-Model"><a href="#BP-Detection-With-the-FG-Model" class="headerlink" title="BP Detection With the FG Model"></a>BP Detection With the FG Model</h3><p>$\quad$In a <em>factor graph</em>(FG) model,there are two types of nodes,namely <em>factor node</em>(FN) and <em>symbol node</em>(SN),denoted in graphs as:<br>$\begin{cases}f_i \Leftrightarrow FN, &amp; i\in {1,2,…,N_r} \ S_j\Leftrightarrow SN, &amp; j\in {1,2,…,N_t}\end{cases}$<br>$\quad$In both the factor graph and the tanner graph,we use the channel matrix $\bold {H}$ to denote elements. To be exact,each $f_i$ corresponds to the $i$-th row of the channel matrix,and each $S_j$ relates to the $j$-th column of the channel matrix. Every pair<br>of $f_i$ and $S_j$ are connected with an edge corresponding to the channel coefficient $h_{ij}$.<br>$\quad$In this article ,message $\beta_{ij}$ will be delivered from $f_i$ to $S_j$,while the message $\alpha$ will be computed and transferred in a reverse direction,meaning $\alpha_{ji}$ will be message sent from $S_j$ to $f_i$.</p>
+<h2 id="The-Proposed-BsP-Detection"><a href="#The-Proposed-BsP-Detection" class="headerlink" title="The Proposed BsP Detection"></a>The Proposed BsP Detection</h2><p>$\quad$The constellation cardinality($|(\mathcal A)|$) of the MIMO systems and the degree<!--?--> of the function nodes(FNs) contribute greatly to the exponential computational complexity.<br>$\quad$However symbol vectors with low reliability contribute limitly to the message $\beta_{ij}$,encouraging us to squeeze the search space by removing them.</p>
+<!-- 1)STstrategy to reduce thecardinalityof the
+ transmittedsymbol
+  2)ESstrategy tosimplified theconnected
+ edgesof theFNs-->
+
+<h3 id="Symbol-Based-Truncation-Strategy"><a href="#Symbol-Based-Truncation-Strategy" class="headerlink" title="Symbol-Based Truncation Strategy"></a>Symbol-Based Truncation Strategy</h3><p>Incoming $\alpha_{ji}{}$ is truncated into $\alpha_{ji}^{t}$ by eliminating the <em>log-likelihood ratio</em>(LLR) with relatively small value.</p>
+<h2 id="Appendix"><a href="#Appendix" class="headerlink" title="Appendix"></a>Appendix</h2><p>PP: pseudo priori<br>(|$\mathcal A$|): constellation cardinality<br>LLR: log-likelihood ratio</p>
 ]]></content>
       <tags>
         <tag>paper</tag>
