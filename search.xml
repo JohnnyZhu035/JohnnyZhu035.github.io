@@ -278,7 +278,7 @@ connected FG model [23], in part to the approximations such as GAI. Second, the 
 </blockquote>
 <p>The receiver don’t know about the sent messsage $\mathbf{s}$ so it decides to retrieve it from the received message $\mathbf{r}$.<br>Using MMSE,we can try to minimize$||\mathbf{r}-\mathbf{H\cdot s}||^2$<br>Obviously,we can get:</p>
 <blockquote>
-<p>$\hat{\mathbf{s}} = (\mathbf{H}^\mathbf{H})^{-1}\mathbf{H} \mathbf{r}$</p>
+<p>$\hat{\mathbf{s}} = (\mathbf{H}^\mathbf{*})^{-1}\mathbf{H} \mathbf{r}$</p>
 </blockquote>
 <p>where the term before $\mathbf{r}$ is the pseudo-inverse of a matrix,$\mathbf{H^*}$ denotes the conjugate of $\mathbf{H}$.<br>The retrieved message,compared to the original $\mathbf{s}$,is:</p>
 <blockquote>
@@ -286,7 +286,7 @@ connected FG model [23], in part to the approximations such as GAI. Second, the 
 </blockquote>
 <p>where $\mathbf{n_m}$ denotes the modified noise.<br>To eliminate the impact of possible influence of the modified noise,we add in a regularization factor $\delta \mathbf{I}$,so that:</p>
 <blockquote>
-<script type="math/tex; mode=display">\hat{\mathbf{s}} = (\mathbf{H}^\mathbf{H} + \delta \mathbf{I})^{-1} \mathbf{H} \mathbf{r}</script></blockquote>
+<script type="math/tex; mode=display">\hat{\mathbf{s}} = (\mathbf{H}^\mathbf{*} + \delta \mathbf{I})^{-1} \mathbf{H} \mathbf{r}</script></blockquote>
 <p>where:<br>if $\delta \to 0$,the channel matrix takes over so the $\hat {\mathbf s}$ will be just as the equation<br>if $\delta \to \infty$,the $\mathbf{I}$ takses over and in such cases,$\hat {\mathbf{s}}=\mathbf{H^*r}$<br>Completed!</p>
 <h2 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h2><h2 id="Appendix"><a href="#Appendix" class="headerlink" title="Appendix"></a>Appendix</h2>]]></content>
       <tags>
