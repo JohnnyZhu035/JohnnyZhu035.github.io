@@ -272,25 +272,69 @@ connected FG model [23], in part to the approximations such as GAI. Second, the 
     <title>Reading Paper:A Low-Complexity Massive MIMO Detection Based on Approximate Expectation Propagation(AEP or EPA in this paper)</title>
     <url>/2024/07/17/Reading-Paper-A-Low-Complexity-Massive-MIMO-Detection-Based-on-Approximate-Expectation-Propagation-AEP-or-EPA-in-this-paper/</url>
     <content><![CDATA[<h2 id="Before-Beginning"><a href="#Before-Beginning" class="headerlink" title="Before Beginning"></a>Before Beginning</h2><p>Now that we have some basic understanding of MIMO and relative mathematical knowledge,we will attempt to get the hang of this paper(whose knowledge still present a challenge to me)!</p>
-<h3 id="A-bit-of-Zero-Forcing-ZF"><a href="#A-bit-of-Zero-Forcing-ZF" class="headerlink" title="A bit of Zero Forcing(ZF)"></a>A bit of Zero Forcing(ZF)</h3><p>HFor a receiving antenna,if the channel matrix is $\mathbf{H}$,the sent message $\mathbf{s}$ and the received modulated message is $\mathbf{r}$ and denote the Gaussian noise as $\mathbf{n}$,then we denote the received message as:</p>
+<h3 id="A-Bit-of-Zero-Forcing-ZF"><a href="#A-Bit-of-Zero-Forcing-ZF" class="headerlink" title="A Bit of Zero Forcing(ZF)"></a>A Bit of Zero Forcing(ZF)</h3><p>HFor a receiving antenna,if the channel matrix is $\mathbf{H}$,the sent message $\mathbf{s}$ and the received modulated message is $\mathbf{r}$ and denote the Gaussian noise as $\mathbf{n}$,then we denote the received message as:</p>
 <blockquote>
-<p>$\mathbf{r}=\mathbf{H\cdot s}+\mathbf{n}$</p>
+<p>$\mathbf{r}&#x3D;\mathbf{H\cdot s}+\mathbf{n}$</p>
 </blockquote>
 <p>The receiver don’t know about the sent messsage $\mathbf{s}$ so it decides to retrieve it from the received message $\mathbf{r}$.<br>Using MMSE,we can try to minimize$||\mathbf{r}-\mathbf{H\cdot s}||^2$<br>Obviously,we can get:</p>
 <blockquote>
-<p>$\hat{\mathbf{s}} = (\mathbf{H}^\mathbf{*})^{-1}\mathbf{H} \mathbf{r}$</p>
+<p>$\hat{\mathbf{s}} &#x3D; (\mathbf{H}^\mathbf{*})^{-1}\mathbf{H} \mathbf{r}$</p>
 </blockquote>
 <p>where the term before $\mathbf{r}$ is the pseudo-inverse of a matrix,$\mathbf{H^*}$ denotes the conjugate of $\mathbf{H}$.<br>The retrieved message,compared to the original $\mathbf{s}$,is:</p>
 <blockquote>
-<p>$\mathbf{\hat s}=\mathbf{s}+(\mathbf{n_m})$</p>
+<p>$\mathbf{\hat s}&#x3D;\mathbf{s}+(\mathbf{n_m})$</p>
 </blockquote>
 <p>where $\mathbf{n_m}$ denotes the modified noise.<br>To eliminate the impact of possible influence of the modified noise,we add in a regularization factor $\delta \mathbf{I}$,so that:</p>
 <blockquote>
-<script type="math/tex; mode=display">\hat{\mathbf{s}} = (\mathbf{H}^\mathbf{*} + \delta \mathbf{I})^{-1} \mathbf{H} \mathbf{r}</script></blockquote>
-<p>where:<br>if $\delta \to 0$,the channel matrix takes over so the $\hat {\mathbf s}$ will be just as the equation<br>if $\delta \to \infty$,the $\mathbf{I}$ takses over and in such cases,$\hat {\mathbf{s}}=\mathbf{H^*r}$<br>Completed!</p>
-<h2 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h2><h2 id="Appendix"><a href="#Appendix" class="headerlink" title="Appendix"></a>Appendix</h2>]]></content>
+<p>$$ \hat{\mathbf{s}} &#x3D; (\mathbf{H}^\mathbf{*} + \delta \mathbf{I})^{-1} \mathbf{H} \mathbf{r} $$</p>
+</blockquote>
+<p>where:<br>if $\delta \to 0$,the channel matrix takes over so the $\hat {\mathbf s}$ will be just as the equation<br>if $\delta \to \infty$,the $\mathbf{I}$ takses over and in such cases,$\hat {\mathbf{s}}&#x3D;\mathbf{H^*r}$<br>Completed!</p>
+<h2 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h2><h3 id="Existing-Methods"><a href="#Existing-Methods" class="headerlink" title="Existing Methods"></a>Existing Methods</h3><p>The loading factor $\alpha$ is defined as $\alpha&#x3D;M&#x2F;N$,with M transmitting and N receiving signals.<br>Existing MMSE and ZF methods exibit near -optimal performances when $\alpha &lt;&lt;1$,while carrying low spectral efficiency.<br>When $\alpha \approx 1$ the spectral efficiency can be attained while losing performance for linear detectors.<br>Later methods like BP and GTA still present not satisfying performance.</p>
+<h3 id="EP-MIMO-Detectors"><a href="#EP-MIMO-Detectors" class="headerlink" title="EP  MIMO Detectors"></a>EP  MIMO Detectors</h3><p>EP detector(EPD) enables a Gaussian approximation to be constructed for the posterior distribution of the transmitted symbols based on moment matching.<br>EP requires the explicit calculation of full matrix inversion,resulting in $\mathcal O(M^3)$ computation complexity.<br>The EP-NSA method exhibits great performance with $\alpha&lt;&lt;1$ but suffers performance degradation for larger $\alpha$.<br>The EP-SU method still costs around $\mathcal O(M^3)$.<br>The above methods involve circumventing <strong>matrix inversion</strong>!<br>Therefore,an EPA method is propopsed.Recovering EP performance for$\alpha&lt;1$and approaches EP for $\alpha \geq 1$.</p>
+<h3 id="Outline"><a href="#Outline" class="headerlink" title="Outline"></a>Outline</h3><p>The remainder of this paper is structured as below. The exact EP approach for massive MIMO detection is introduced in Section II. In Section III, detailed derivation, description and discussion of the proposed algorithm EPA are presented. Section IV shows an alternative derivation of EPA from the viewpoint of EC.Numericalsimulation results of the proposed algorithm and analysis of the computational costs are provided in Section V.Section VI concludes the paper.</p>
+<h2 id="Appendix"><a href="#Appendix" class="headerlink" title="Appendix"></a>Appendix</h2><p>ZF: zero forcing<br>CHEMP: channel-hardening exploiting message passing<br>GTA: Gaussian tree approximation<br>EP-NSA: EP with Neumann series approximation<br>EP-SU: EP-successive updating</p>
+]]></content>
       <tags>
         <tag>paper</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Reading:Pattern Recognition and Machine Learning</title>
+    <url>/2024/07/17/Reading-Pattern-Recognition-and-Machine-Learning/</url>
+    <content><![CDATA[<h2 id="Chapter-8-Graphical-Models"><a href="#Chapter-8-Graphical-Models" class="headerlink" title="Chapter 8:Graphical Models"></a>Chapter 8:Graphical Models</h2><p>In graphical models,there are two parts:</p>
+<blockquote>
+<p>nodes or vertices<br>links or edges or arcs</p>
+</blockquote>
+<p>The graphical models mainly divide into two parts</p>
+<blockquote>
+<p><em>Bayesian networks</em> or <em>directed graphical models</em> </p>
+</blockquote>
+<blockquote>
+<p><em>Markov  random fields</em> or <em>undirected graphical models</em></p>
+</blockquote>
+<blockquote>
+<p>“Directed graphs are useful for expressing causal relationships between<br> random variables, whereas undirected graphs are better suited to expressing soft con<br>straints between random variables. For the purposes of solving inference problems,<br> it is often convenient to convert both directed and undirected graphs into a different<br> representation called a factor graph.”</p>
+</blockquote>
+<h3 id="Bayesian-Networks"><a href="#Bayesian-Networks" class="headerlink" title="Bayesian Networks"></a>Bayesian Networks</h3><p><em>Multiplication Theorem of Probabilities</em><br>This can be denoted as:</p>
+<blockquote>
+<p>$p(a,b)&#x3D;p(a|b)p(b)$</p>
+</blockquote>
+<p>which originates from the <em>conditional probability</em></p>
+<blockquote>
+<p>$p(A|B)&#x3D;\frac{p(AB)}{p(B)}$</p>
+</blockquote>
+<p>For this relationship $P(a,b,c)$,we can take it separately as:</p>
+<blockquote>
+<p>$P(a,b,c)&#x3D;P(c|a,b)P(a,b)&#x3D;P(c|a,b)P(b|a)P(a)$</p>
+</blockquote>
+<p>This can be represented by a graph:<br><img src="/images/graph81.png" alt="图片" title="Graph Denoting a,b,c"><br>Now let’s consider a more complicated scenario,there are N numbers in a column vector, polynomial coefficients $\mathbf{w}$.The input data $\mathbf{x}&#x3D;(x_1,…,x_n)^T$ and the observed data$\mathbf{t}&#x3D;(t_1,…,t_n)^T$,with a Gaussian noises variance $\sigma^2$ and a hyperparameter $\alpha$ representing the precision of the Gaussian prior over $\mathbf{w}$.<br>The joint distribution is given by the product of the prior $p(\mathbf{w})$ and $N$ conditional distributions $p(t_n|\mathbf{w})$ for $n&#x3D;1,2,…,N$.</p>
+<blockquote>
+<p>$p(\mathbf{t,w})&#x3D;p(\mathbf{w})\displaystyle \prod_{n&#x3D;1}^{N}{p(t_n|\mathbf{w})}$</p>
+</blockquote>
+<h2 id="Appendix"><a href="#Appendix" class="headerlink" title="Appendix"></a>Appendix</h2><p>PDF: probability density function</p>
+]]></content>
+      <tags>
+        <tag>learning</tag>
       </tags>
   </entry>
 </search>
