@@ -268,4 +268,29 @@ connected FG model [23], in part to the approximations such as GAI. Second, the 
         <tag>Learning</tag>
       </tags>
   </entry>
+  <entry>
+    <title>Reading Paper:A Low-Complexity Massive MIMO Detection Based on Approximate Expectation Propagation(AEP or EPA in this paper)</title>
+    <url>/2024/07/17/Reading-Paper-A-Low-Complexity-Massive-MIMO-Detection-Based-on-Approximate-Expectation-Propagation-AEP-or-EPA-in-this-paper/</url>
+    <content><![CDATA[<h2 id="Before-Beginning"><a href="#Before-Beginning" class="headerlink" title="Before Beginning"></a>Before Beginning</h2><p>Now that we have some basic understanding of MIMO and relative mathematical knowledge,we will attempt to get the hang of this paper(whose knowledge still present a challenge to me)!</p>
+<h3 id="A-bit-of-Zero-Forcing-ZF"><a href="#A-bit-of-Zero-Forcing-ZF" class="headerlink" title="A bit of Zero Forcing(ZF)"></a>A bit of Zero Forcing(ZF)</h3><p>HFor a receiving antenna,if the channel matrix is $\mathbf{H}$,the sent message $\mathbf{s}$ and the received modulated message is $\mathbf{r}$ and denote the Gaussian noise as $\mathbf{n}$,then we denote the received message as:</p>
+<blockquote>
+<p>$\mathbf{r}=\mathbf{H\cdot s}+\mathbf{n}$</p>
+</blockquote>
+<p>The receiver don’t know about the sent messsage $\mathbf{s}$ so it decides to retrieve it from the received message $\mathbf{r}$.<br>Using MMSE,we can try to minimize$||\mathbf{r}-\mathbf{H\cdot s}||^2$<br>Obviously,we can get:</p>
+<blockquote>
+<p>$\hat{\mathbf{s}} = (\mathbf{H}^\mathbf{H})^{-1}\mathbf{H} \mathbf{r}$</p>
+</blockquote>
+<p>where the term before $\mathbf{r}$ is the pseudo-inverse of a matrix,$\mathbf{H^*}$ denotes the conjugate of $\mathbf{H}$.<br>The retrieved message,compared to the original $\mathbf{s}$,is:</p>
+<blockquote>
+<p>$\mathbf{\hat s}=\mathbf{s}+(\mathbf{n_m})$</p>
+</blockquote>
+<p>where $\mathbf{n_m}$ denotes the modified noise.<br>To eliminate the impact of possible influence of the modified noise,we add in a regularization factor $\delta \mathbf{I}$,so that:</p>
+<blockquote>
+<script type="math/tex; mode=display">\hat{\mathbf{s}} = (\mathbf{H}^\mathbf{H} + \delta \mathbf{I})^{-1} \mathbf{H} \mathbf{r}</script></blockquote>
+<p>where:<br>if $\delta \to 0$,the channel matrix takes over so the $\hat {\mathbf s}$ will be just as the equation<br>if $\delta \to \infty$,the $\mathbf{I}$ takses over and in such cases,$\hat {\mathbf{s}}=\mathbf{H^*r}$<br>Completed!</p>
+<h2 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h2><h2 id="Appendix"><a href="#Appendix" class="headerlink" title="Appendix"></a>Appendix</h2>]]></content>
+      <tags>
+        <tag>paper</tag>
+      </tags>
+  </entry>
 </search>
