@@ -141,6 +141,9 @@
 <p>$g_1(x_1)&#x3D;\mu_{f_1\to x_1}{(x_1)}\mu_{f_3\to x_1}{(x_1)}$</p>
 </blockquote>
 ]]></content>
+      <tags>
+        <tag>Reading-Paper</tag>
+      </tags>
   </entry>
   <entry>
     <title>Reading Paper:Belief-selective Propagation Detection for MIMO Systems</title>
@@ -276,7 +279,7 @@ connected FG model [23], in part to the approximations such as GAI. Second, the 
 <h2 id="Further-Application"><a href="#Further-Application" class="headerlink" title="Further Application"></a>Further Application</h2><p><em><strong>To Be Continued</strong></em></p>
 ]]></content>
       <tags>
-        <tag>Learning</tag>
+        <tag>learning</tag>
       </tags>
   </entry>
   <entry>
@@ -343,6 +346,54 @@ connected FG model [23], in part to the approximations such as GAI. Second, the 
 <p>$p(\mathbf{t,w})&#x3D;p(\mathbf{w})\displaystyle \prod_{n&#x3D;1}^{N}{p(t_n|\mathbf{w})}$</p>
 </blockquote>
 <h2 id="Appendix"><a href="#Appendix" class="headerlink" title="Appendix"></a>Appendix</h2><p>PDF: probability density function</p>
+]]></content>
+      <tags>
+        <tag>learning</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>First Glance at Covariance Matrix</title>
+    <url>/2024/07/18/First-Glance-at-Covariance-Matrix/</url>
+    <content><![CDATA[<h2 id="Definition"><a href="#Definition" class="headerlink" title="Definition"></a>Definition</h2><p>Let $X$ be a $N\times 1$ random column vector.The <em>covariance matrix</em> of $X$ is denoted as $Var[X]$ ,and defined as</p>
+<blockquote>
+<p>$Var[X]&#x3D;E[(X-E(X))(X-E[X])^T]$</p>
+</blockquote>
+<p>where $E(\cdot)$ denoted the expectation of $\cdot$.<br>In the equation above,we can transform the dot product form into square form,in other words:</p>
+<blockquote>
+<p>$E[(X-E(X))(X-E[X])^T]&#x3D;E[(X-E(X))^2]$</p>
+</blockquote>
+<h2 id="Example"><a href="#Example" class="headerlink" title="Example"></a>Example</h2><p>Suppose $x$ is a $2\times 1$ vector,with $X_1,X_2$ as its components.<br>Let</p>
+<blockquote>
+<p>$Var[X_1]&#x3D;2$<br>$Var[X_2]&#x3D;4$<br>$Cov[X_1,X_2]&#x3D;1$</p>
+</blockquote>
+<p>Noticably,</p>
+<blockquote>
+<p>$Var[X]&#x3D;\begin{bmatrix}<br>Var[X_1] &amp;Cov[X_1,X_2]\<br>Cov[X_2,X_1] &amp;Var[X_2]<br>\end{bmatrix}\<br>&#x3D;\begin{bmatrix}<br>2 &amp;1\\<br>1 &amp;4<br>\end{bmatrix}<br>$</p>
+</blockquote>
+<p>The covariance matrix can also be counted by using the equivalent formula below:</p>
+<blockquote>
+<p>$Var[X]&#x3D;E[XX^T]-E[X]E[X]^T$</p>
+</blockquote>
+<p>Also,we have such corollaries below:</p>
+<blockquote>
+<p>$Var[a+X]&#x3D;Var[X]$</p>
+</blockquote>
+<blockquote>
+<p>$Var[bX]&#x3D;bVar[X]b^T$</p>
+</blockquote>
+<blockquote>
+<p>$Var[X]^T&#x3D;Var[X]$</p>
+</blockquote>
+<h2 id="Covariance-between-Linear-Transformations"><a href="#Covariance-between-Linear-Transformations" class="headerlink" title="Covariance between Linear Transformations"></a>Covariance between Linear Transformations</h2><p>Let $a$ and $b$ be two constant $1\times K$ vectors and $X$ a $K\times 1$ random vector.The covariance between two linear transformations $aX$ and $bX$ is</p>
+<blockquote>
+<p>$Cov[aX,bX]&#x3D;aVar[X]b^T$</p>
+</blockquote>
+<h2 id="Cross-Covariance"><a href="#Cross-Covariance" class="headerlink" title="Cross-Covariance"></a>Cross-Covariance</h2><p>For two random vectors,what will happen?<br>Let $X$ be a $K\times 1$ vector and $Y$ be a $L\times 1$ vector(random).The covariance matrix between $X,Y$ is denoted by $Cov[X,Y]$</p>
+<blockquote>
+<p>$Cov[X,Y]&#x3D;E[(X-E(X)(Y-E(Y))^T]$</p>
+</blockquote>
+<p>resulting in a $K\times L$ matrix.<br>Apparently,$Cov[X,Y]\neq Cov[Y,X]$,but $Cov[X,Y]&#x3D; (Cov[Y,X])^T$<br>What’s worth noting is that the Covariance Matrix bears good <em>linearity</em>!</p>
+<h2 id="Reference"><a href="#Reference" class="headerlink" title="Reference:"></a>Reference:</h2><p><em>Taboga, Marco (2021). “Covariance matrix”, Lectures on probability theory and mathematical statistics. Kindle Direct Publishing. Online appendix. <a href="https://www.statlect.com/fundamentals-of-probability/covariance-matrix">https://www.statlect.com/fundamentals-of-probability/covariance-matrix</a>.</em></p>
 ]]></content>
       <tags>
         <tag>learning</tag>
