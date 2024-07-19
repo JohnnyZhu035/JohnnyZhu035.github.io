@@ -368,7 +368,7 @@ connected FG model [23], in part to the approximations such as GAI. Second, the 
 </blockquote>
 <p>Noticably,</p>
 <blockquote>
-<p>$Var[X]&#x3D;\begin{bmatrix}<br>Var[X_1] &amp;Cov[X_1,X_2]\<br>Cov[X_2,X_1] &amp;Var[X_2]<br>\end{bmatrix}\<br>&#x3D;\begin{bmatrix}<br>2 &amp;1\\<br>1 &amp;4<br>\end{bmatrix}<br>$</p>
+<p>$Var[X]&#x3D;\begin{bmatrix}<br>Var[X_1] &amp;Cov[X_1,X_2]\\<br>Cov[X_2,X_1] &amp;Var[X_2]<br>\end{bmatrix}\<br>&#x3D;\begin{bmatrix}<br>2 &amp;1\\<br>1 &amp;4<br>\end{bmatrix}<br>$</p>
 </blockquote>
 <p>The covariance matrix can also be counted by using the equivalent formula below:</p>
 <blockquote>
