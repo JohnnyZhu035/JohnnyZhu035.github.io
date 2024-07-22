@@ -303,7 +303,7 @@ connected FG model [23], in part to the approximations such as GAI. Second, the 
 <p>$$ \hat{\mathbf{s}} &#x3D; (\mathbf{H}^\mathbf{*} + \delta \mathbf{I})^{-1} \mathbf{H} \mathbf{r} $$</p>
 </blockquote>
 <p>where:<br>if $\delta \to 0$,the channel matrix takes over so the $\hat {\mathbf s}$ will be just as the equation<br>if $\delta \to \infty$,the $\mathbf{I}$ takses over and in such cases,$\hat {\mathbf{s}}&#x3D;\mathbf{H^*r}$<br>Completed!</p>
-<h2 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h2><h3 id="Existing-Methods"><a href="#Existing-Methods" class="headerlink" title="Existing Methods"></a>Existing Methods</h3><p>The loading factor $\alpha$ is defined as $\alpha&#x3D;M&#x2F;N$,with M transmitting and N receiving signals.<br>Existing MMSE and ZF methods exibit near -optimal performances when $\alpha &lt;&lt;1$,while carrying low spectral efficiency.<br>When $\alpha \approx 1$ the spectral efficiency can be attained while losing performance for linear detectors.<br>Later methods like BP and GTA still present not satisfying performance.</p>
+<h3 id="Neumann-Series"><a href="#Neumann-Series" class="headerlink" title="Neumann Series"></a>Neumann Series</h3><h2 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h2><h3 id="Existing-Methods"><a href="#Existing-Methods" class="headerlink" title="Existing Methods"></a>Existing Methods</h3><p>The loading factor $\alpha$ is defined as $\alpha&#x3D;M&#x2F;N$,with M transmitting and N receiving signals.<br>Existing MMSE and ZF methods exibit near -optimal performances when $\alpha &lt;&lt;1$,while carrying low spectral efficiency.<br>When $\alpha \approx 1$ the spectral efficiency can be attained while losing performance for linear detectors.<br>Later methods like BP and GTA still present not satisfying performance.</p>
 <h3 id="Preliminary"><a href="#Preliminary" class="headerlink" title="Preliminary"></a>Preliminary</h3><h4 id="MIMO-System-Model"><a href="#MIMO-System-Model" class="headerlink" title="MIMO System Model"></a>MIMO System Model</h4><p>In this paper,we use real-value system:</p>
 <blockquote>
 <p>$\mathbf{y}&#x3D;\mathbf{Hx}+\mathbf{n}$</p>
@@ -311,7 +311,8 @@ connected FG model [23], in part to the approximations such as GAI. Second, the 
 <p>where $\mathbf y\in \mathbb R^{2N}$,$\mathbf{H}\in \mathbb R^{2N\times 2M}$,$\mathbf{x}\in \Theta^{2M}$.$\mathbf n \sim \mathcal N(0,\sigma_n^2\mathbf I_{2N})$.<br>Assume a uniform prior distribution in this paper,meaning no tendency of a certain symbol.Expressed as $f(\mathbf x)\propto\prod_{i&#x3D;1}^{2M}\mathbb I_{x_i\in \Theta}$,where $\mathbb I_{x_i\in \Theta}$ is the indicator duncition of the constraints of the value of $x_i\in \Theta$<br>If $x_i\in \Theta$,the function&#x3D;1,else the function&#x3D;0.<br>The posterior distribution of $\mathbf x$ has the following representation:<br>$p(\mathbf x|\mathbf y)\propto p(\mathbf y|\mathbf x)f(\mathbf x)\propto \mathcal N(\mathbf y :\mathbf{Hx},\sigma^2_n\mathbf I_{2N})\prod_{i&#x3D;1}^{2M}{\mathbb I_{x_i\in \Theta}}$</p>
 <h3 id="EP-MIMO-Detectors"><a href="#EP-MIMO-Detectors" class="headerlink" title="EP  MIMO Detectors"></a>EP  MIMO Detectors</h3><p>EP detector(EPD) enables a Gaussian approximation to be constructed for the posterior distribution of the transmitted symbols based on moment matching.<br>EP requires the explicit calculation of full matrix inversion,resulting in $\mathcal O(M^3)$ computation complexity.<br>The EP-NSA method exhibits great performance with $\alpha&lt;&lt;1$ but suffers performance degradation for larger $\alpha$.<br>The EP-SU method still costs around $\mathcal O(M^3)$.<br>The above methods involve circumventing <strong>matrix inversion</strong>!<br>Therefore,an EPA method is propopsed.Recovering EP performance for$\alpha&lt;1$and approaches EP for $\alpha \geq 1$.</p>
 <h3 id="Outline"><a href="#Outline" class="headerlink" title="Outline"></a>Outline</h3><p>The remainder of this paper is structured as below. The exact EP approach for massive MIMO detection is introduced in Section II. In Section III, detailed derivation, description and discussion of the proposed algorithm EPA are presented. Section IV shows an alternative derivation of EPA from the viewpoint of EC.Numericalsimulation results of the proposed algorithm and analysis of the computational costs are provided in Section V.Section VI concludes the paper.</p>
-<h2 id="Appendix"><a href="#Appendix" class="headerlink" title="Appendix"></a>Appendix</h2><p>ZF: zero forcing<br>CHEMP: channel-hardening exploiting message passing<br>GTA: Gaussian tree approximation<br>EP-NSA: EP with Neumann series approximation<br>EP-SU: EP-successive updating<br>EC: expectation consistency</p>
+<h2 id="Simulation-Analysis"><a href="#Simulation-Analysis" class="headerlink" title="Simulation Analysis"></a>Simulation Analysis</h2><p>Consider i.i.d.(independent and identically distributed)Rayleigh-fading channels with AWGN. </p>
+<h2 id="Appendix"><a href="#Appendix" class="headerlink" title="Appendix"></a>Appendix</h2><p>ZF: zero forcing<br>CHEMP: channel-hardening exploiting message passing<br>GTA: Gaussian tree approximation<br>EP-NSA: EP with Neumann series approximation<br>EP-SU: EP-successive updating<br>EC: expectation consistency<br>i.i.d:independent and identically distributed<br>AWGN: additive white Gaussian noise</p>
 ]]></content>
       <tags>
         <tag>Reading-Paper</tag>
@@ -399,6 +400,66 @@ connected FG model [23], in part to the approximations such as GAI. Second, the 
 </blockquote>
 <p>resulting in a $K\times L$ matrix.<br>Apparently,$Cov[X,Y]\neq Cov[Y,X]$,but $Cov[X,Y]&#x3D; (Cov[Y,X])^T$<br>What’s worth noting is that the Covariance Matrix bears good <em>linearity</em>!</p>
 <h2 id="Reference"><a href="#Reference" class="headerlink" title="Reference:"></a>Reference:</h2><p><em>Taboga, Marco (2021). “Covariance matrix”, Lectures on probability theory and mathematical statistics. Kindle Direct Publishing. Online appendix. <a href="https://www.statlect.com/fundamentals-of-probability/covariance-matrix">https://www.statlect.com/fundamentals-of-probability/covariance-matrix</a>.</em></p>
+]]></content>
+      <tags>
+        <tag>learning</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Analysis:How to Form a Paper</title>
+    <url>/2024/07/19/Analysis-How-to-Form-a-Paper/</url>
+    <content><![CDATA[<h2 id="Abstract"><a href="#Abstract" class="headerlink" title="Abstract"></a><strong>Abstract</strong></h2><p>$\quad$ Recent environment encourage students to create their own works or even present paper in the undergraduate period.But for most of the first and second year student,they find themselves hard to acquire the basic and needed skills and knowledge to structurize a formal paper with great proficiency.In order to prevent students from being tortured and to prevent peer viewers and mentors from relentlessly modifying and correcting paper,this work is proposed.The aim of this paper is to propose the conventional formula of how to c</p>
+]]></content>
+      <tags>
+        <tag>learning</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Variance and Covariance</title>
+    <url>/2024/07/22/Variance-and-Covariance/</url>
+    <content><![CDATA[<h2 id="Variance"><a href="#Variance" class="headerlink" title="Variance"></a>Variance</h2><p>The <em>variance</em> of a random variable $X$ can be defined as:</p>
+<blockquote>
+<p>If $\mathbb E(X)&#x3D;\mu$</p>
+</blockquote>
+<blockquote>
+<p>$var(X)&#x3D;\mathbb E((x-\mu)^2)$</p>
+</blockquote>
+<p>For its <em>standard deviation</em>,soometimes denotes as $sd(X)$,is defined as</p>
+<blockquote>
+<p>$sd(X)&#x3D;\sqrt{var(X)}$</p>
+</blockquote>
+<p>The variance has the following properties:</p>
+<blockquote>
+<p>$var(X+C)&#x3D;var(X)$<br>$var(bX)&#x3D;b^2var(X)$</p>
+</blockquote>
+<p>Similarly,in the covariance matrix chapter,the <em>covariance matrix</em> has near-the-same properties.</p>
+<h3 id="The-Tchebychev-inequality"><a href="#The-Tchebychev-inequality" class="headerlink" title="The Tchebychev inequality"></a>The Tchebychev inequality</h3><blockquote>
+<p>$\mathbb P{(|X-\mu|)&gt;\epsilon}\leq \frac{var(X)}{\epsilon^2}$</p>
+</blockquote>
+<p>where $\mu$ is the expectation of $X$,and $\epsilon&gt;0$<br>The variance can be sometimes canculated in another way:</p>
+<blockquote>
+<p>$var(X)&#x3D;\mathbb E(X^2)-\mathbb E(X)^2$</p>
+</blockquote>
+<h2 id="Covariance"><a href="#Covariance" class="headerlink" title="Covariance"></a>Covariance</h2><p>The <em>covariance</em> of two random variables $X$ and $Y$ is defined as:</p>
+<blockquote>
+<p>$cov(X,Y)&#x3D;\mathbb E{(X-\mathbb E(X))(Y-\mathbb E(Y))}$</p>
+</blockquote>
+<p>for a more complicated expression with $a,b,c,d$ as constants and $U,V,X,Y$ as random variables,we denote:</p>
+<blockquote>
+<p>$cov(aU+bV,cX+dY)&#x3D;accov(U,X)+bccov(V,X)+adcov(U,Y)+bdcov(V,Y)$</p>
+</blockquote>
+<h2 id="Correlation"><a href="#Correlation" class="headerlink" title="Correlation"></a>Correlation</h2><p>The <em>correlation</em> between two variables $Y$ and $Z$ can be denoted as:</p>
+<blockquote>
+<p>corr(Y,Z)&#x3D;\frac{cov(Y,Z)}{\sqrt{var(Y)var(Z)}}</p>
+</blockquote>
+<h2 id="Standardized-Variables"><a href="#Standardized-Variables" class="headerlink" title="Standardized Variables"></a>Standardized Variables</h2><p>To standardize between different variables,we need to find a way:<em>standardized variables</em>.For two variables $Y$ and $Z$,with their mean and variance $\mu _Y$ $\sigma^2_Y$ $\mu _Z$ $\sigma^2_Z$.We standardize each with the following:</p>
+<blockquote>
+<p>$Y’&#x3D;\frac{Y-\mu_Y}{\sigma_Y}$<br>$Z’&#x3D;\frac{Z-\mu_Z}{\sigma_Z}$</p>
+</blockquote>
+<p>In this way,the mean of $Y’,Z’$ is 0 and the variance of them is 1,and</p>
+<blockquote>
+<p>$corr(Y,Z)&#x3D;cov(Y’,Z’)&#x3D;\mathbb E(Y’Z’)$</p>
+</blockquote>
 ]]></content>
       <tags>
         <tag>learning</tag>
