@@ -476,13 +476,19 @@ connected FG model [23], in part to the approximations such as GAI. Second, the 
 <h4 id="In-Univariate-Normal-Distribution"><a href="#In-Univariate-Normal-Distribution" class="headerlink" title="In Univariate Normal Distribution"></a>In Univariate Normal Distribution</h4><p>This distance can be measured as:</p>
 <blockquote>
 <p>$d=\frac{x-\mu}{\sigma}$</p>
-<h4 id="In-Multivariate-Normal-Distribution"><a href="#In-Multivariate-Normal-Distribution" class="headerlink" title="In Multivariate Normal Distribution"></a>In Multivariate Normal Distribution</h4><p>Also,this distance can be measured as:<br>$d=\sqrt{(X-\mu)^T\Sigma^{-1}(X-\mu)}$</p>
+</blockquote>
+<h4 id="In-Multivariate-Normal-Distribution"><a href="#In-Multivariate-Normal-Distribution" class="headerlink" title="In Multivariate Normal Distribution"></a>In Multivariate Normal Distribution</h4><p>Also,this distance can be measured as:</p>
+<blockquote>
+<p>$d=\sqrt{(X-\mu)^T\Sigma^{-1}(X-\mu)}$</p>
 <h3 id="Integral-Property"><a href="#Integral-Property" class="headerlink" title="Integral Property"></a>Integral Property</h3><p>For univariate normal distribution:<br>$\frac{1}{\sqrt{2\pi}\sigma}\int_{-\infty}^{\infty}{\exp{\frac{-1}{2\sigma^2}(x-\mu)^2}}=1$</p>
 </blockquote>
 <p>For multivariate normal distribution:</p>
 <blockquote>
 <p>$\frac{1}{2\pi^{\frac{n}{2}}|\Sigma|^\frac{1}{2}}\int_{-\infty}^{\infty}\int_{-\infty}^{\infty}…\int_{-\infty}^{\infty}\exp{-\frac{1}{2}(x-\mu)^T\Sigma^{-1}(x-\mu)dx_1dx_2…dx_n}=1$</p>
-<h2 id="Diagonal-Covariance-Matrix-gt-Product-Gaussian"><a href="#Diagonal-Covariance-Matrix-gt-Product-Gaussian" class="headerlink" title="Diagonal Covariance Matrix-&gt;Product Gaussian"></a>Diagonal Covariance Matrix-&gt;Product Gaussian</h2><p>Let’s imagine a diagonal covariance matrix $\Sigma$,OK,cool!This means the variables are independent!<br>Let’s take a $2\times 2$ covariance matrix for example:<br>In this column,we define $X=(x_1,x_2)$,the variance matrix $\Sigma = [\begin{matrix}<br>\sigma_1^2 &amp; 0 \\\\<br>0 &amp; \sigma_2^2<br>\end{matrix} ]$<br>and the mean vector $\mu=(\mu_1,\mu_2)$.<br>WE can easily compute the inverse matrix $\Sigma^{-1}=[\begin{matrix}<br>\frac{1}{\sigma_1^2} &amp; 0 \\\\<br>0 &amp; \frac{1}{\sigma_2^2}<br>\end{matrix} ]$<br>In this case,we can find the PDF as:<br>$p(x;\mu,\Sigma)=\frac{1}{2\pi\sigma_1\sigma_2}\exp{(-\frac{1}{2}(x-\mu)^T\Sigma^{-1}(x-\mu))}$</p>
+</blockquote>
+<h2 id="Diagonal-Covariance-Matrix-gt-Product-Gaussian"><a href="#Diagonal-Covariance-Matrix-gt-Product-Gaussian" class="headerlink" title="Diagonal Covariance Matrix-&gt;Product Gaussian"></a>Diagonal Covariance Matrix-&gt;Product Gaussian</h2><p>Let’s imagine a diagonal covariance matrix $\Sigma$,OK,cool!This means the variables are independent!<br>Let’s take a $2\times 2$ covariance matrix for example:<br>In this column,we define $X=(x_1,x_2)$,the variance matrix $\Sigma = [\begin{matrix}<br>\sigma_1^2 &amp; 0 \\\\<br>0 &amp; \sigma_2^2<br>\end{matrix} ]$<br>and the mean vector $\mu=(\mu_1,\mu_2)$.<br>WE can easily compute the inverse matrix $\Sigma^{-1}=[\begin{matrix}<br>\frac{1}{\sigma_1^2} &amp; 0 \\\\<br>0 &amp; \frac{1}{\sigma_2^2}<br>\end{matrix} ]$<br>In this case,we can find the PDF as:</p>
+<blockquote>
+<p>$p(x;\mu,\Sigma)=\frac{1}{2\pi\sigma_1\sigma_2}\exp{(-\frac{1}{2}(x-\mu)^T\Sigma^{-1}(x-\mu))}$</p>
 </blockquote>
 <p>Further computing it,we get:</p>
 <blockquote>
