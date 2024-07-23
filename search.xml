@@ -529,4 +529,76 @@ connected FG model [23], in part to the approximations such as GAI. Second, the 
 </blockquote>
 ]]></content>
   </entry>
+  <entry>
+    <title>MMSE and Relative Methods</title>
+    <url>/2024/07/23/MMSE-and-Relative-Methods/</url>
+    <content><![CDATA[<h2 id="MMSE-Estimation"><a href="#MMSE-Estimation" class="headerlink" title="MMSE Estimation"></a>MMSE Estimation</h2><h3 id="Estimation-with-PDF"><a href="#Estimation-with-PDF" class="headerlink" title="Estimation with PDF"></a>Estimation with PDF</h3><p>For a random variable $x:\Omega \to \mathbb R^n$ with its PDF $p^x$<br>We can <em>predict</em> or <em>estimate</em> the outcome:</p>
+<blockquote>
+<p>Given <em>cost function</em> $c$: $\mathbb<br>R^n\times\mathbb R^n\to R$<br>Pick <em>estimate</em> $\hat x$ to minimize $\mathbf Ex(x,\hat x)$</p>
+</blockquote>
+<h4 id="The-Cost-Function"><a href="#The-Cost-Function" class="headerlink" title="The Cost Function"></a>The Cost Function</h4><blockquote>
+<p>$c(x,\hat x)&#x3D;||x-\hat x||^2$</p>
+</blockquote>
+<h4 id="The-Mean-Square-Error"><a href="#The-Mean-Square-Error" class="headerlink" title="The Mean Square Error"></a>The Mean Square Error</h4><p>The <em>mean square error</em>(MSE) is:</p>
+<blockquote>
+<p>$\mathbf E(||x-\hat x||^2)&#x3D;\int ||x-\hat x||^2p^x(x)dx$</p>
+</blockquote>
+<p>The PDF in this equation can be interpreted as a kind of special weight function!</p>
+<h4 id="The-Minimum-Mean-Square-Error"><a href="#The-Minimum-Mean-Square-Error" class="headerlink" title="The Minimum Mean-Square Error"></a>The Minimum Mean-Square Error</h4><p>The <em>minimum mean-square error</em> is defined as:</p>
+<blockquote>
+<p>$\displaystyle \min_{\hat x}\mathbf  E(||x-\hat x||^2)$</p>
+</blockquote>
+<p>We can derive from that formula:</p>
+<blockquote>
+<p>$\displaystyle \min_{\hat x}\mathbf  E(||x-\hat x||^2)\\&#x3D;\displaystyle \min_{\hat x}\mathbf  E((x-\hat x)^T(x-\hat x))\\&#x3D;\mathbf E||x||^2-2\hat x^T\mathbf Ex+\hat x^T \hat x$</p>
+</blockquote>
+<p>Take the derivative of it,we get:</p>
+<blockquote>
+<p>$\hat x_{mmse}&#x3D;\mathbf Ex$</p>
+</blockquote>
+<p>The mean square error of it is:</p>
+<blockquote>
+<p>$\mathbf E(||x-\hat x_{mmse}||^2)&#x3D;\mathbf{trace cov}(x)$</p>
+</blockquote>
+<h4 id="The-Mean-Variance-Decomposition"><a href="#The-Mean-Variance-Decomposition" class="headerlink" title="The Mean-Variance Decomposition"></a>The Mean-Variance Decomposition</h4><p>The MVD can be interpreted as:</p>
+<blockquote>
+<p>$\mathbf E(||z||^2)&#x3D;\mathbf E(||z-\mathbf Ez||^2)+||\mathbf Ez||^2$</p>
+</blockquote>
+<p>Applying this to the $z&#x3D;x-\hat x$</p>
+<blockquote>
+<p>$\mathbf E(||x-\hat x||^2)&#x3D;\mathbf E(||x-\mathbf Ex||^2)+||\hat x-\mathbf Ex||^2$</p>
+</blockquote>
+<p>The first term is the <em>variance</em> of $x$<br>The second term is the <em>bias</em> of $x$</p>
+<h3 id="The-Estimation-Problem"><a href="#The-Estimation-Problem" class="headerlink" title="The Estimation Problem"></a>The Estimation Problem</h3><p>$x,y$ are random variables,with joint PDF $p(x,y)$<br>We have already measured the variable $y&#x3D;y_{meas}$<br>Now we want to find the MMSE of $x$ given $y&#x3D;y_{meas}$<br>Note that the <em>estimator</em> stands for a function $\phi:\mathbb R^m\to \mathbb R^n$<br>We define $\hat x_{est}&#x3D;\phi(y_{meas})$<br>How can we find the function $\phi$ to minimize the cost function?</p>
+<blockquote>
+<p>$J&#x3D;\mathbf E(||\phi(y)-x||^2)$</p>
+</blockquote>
+<p>We define the <em>marginal PDF</em> of $y$ as:</p>
+<blockquote>
+<p>$p^y(y)&#x3D;\int p(x,y)dx$ </p>
+<blockquote>
+<p>Wow!We can easily notice that this is a continuous form of the marginal function!(See in the factor graph section!).What a surprise!</p>
+</blockquote>
+</blockquote>
+<p>And the <em>conditioned pdf</em> of $y$:</p>
+<blockquote>
+<p>$p^{|y}(y)&#x3D;\frac{p(x,y)}{p^y(y)}$</p>
+</blockquote>
+<h3 id="The-MMSE-Estimator"><a href="#The-MMSE-Estimator" class="headerlink" title="The MMSE Estimator"></a>The MMSE Estimator</h3><p>The <em>mean-square-error conditioned on</em> $y$ is $e_{cond}(y)$,given by:</p>
+<blockquote>
+<p>$e_{cond}(y)&#x3D;\int||\phi(y)-x||^2p^{|y}(x,y)dx$</p>
+</blockquote>
+<p>Then the mean square error $J$ is given by:</p>
+<blockquote>
+<p>$J&#x3D;\mathbf E(e_{cond}(y))$</p>
+</blockquote>
+<p>Because:</p>
+<blockquote>
+<p>$J&#x3D;\int\int ||\phi(y)-x||^2p(x,y)dxdy\\&#x3D;\int p^y(y)e_{cond}(y)dy$</p>
+</blockquote>
+]]></content>
+      <tags>
+        <tag>learning</tag>
+      </tags>
+  </entry>
 </search>
