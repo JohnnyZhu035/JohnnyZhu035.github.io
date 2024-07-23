@@ -456,12 +456,12 @@ connected FG model [23], in part to the approximations such as GAI. Second, the 
   <entry>
     <title>Gaussian Distribution</title>
     <url>/2024/07/22/Gaussian-Distribution/</url>
-    <content><![CDATA[<h2 id="Why-Gaussian-Distribution—Central-Limit-Theorem"><a href="#Why-Gaussian-Distribution—Central-Limit-Theorem" class="headerlink" title="Why Gaussian Distribution—Central Limit Theorem"></a>Why Gaussian Distribution—Central Limit Theorem</h2><h3 id="Population-and-Sample"><a href="#Population-and-Sample" class="headerlink" title="Population and Sample"></a>Population and Sample</h3><p>The <em>population</em> refers to the whole set of individuals that we want to study,and the <em>sample</em> refers to the subset that we choose from the population to study(in respect for the fact that we can’t choose the whole population to study in a row)</p>
+    <content><![CDATA[<h2 id="Why-Gaussian-Distribution–Central-Limit-Theorem"><a href="#Why-Gaussian-Distribution–Central-Limit-Theorem" class="headerlink" title="Why Gaussian Distribution–Central Limit Theorem"></a>Why Gaussian Distribution–Central Limit Theorem</h2><h3 id="Population-and-Sample"><a href="#Population-and-Sample" class="headerlink" title="Population and Sample"></a>Population and Sample</h3><p>The <em>population</em> refers to the whole set of individuals that we want to study,and the <em>sample</em> refers to the subset that we choose from the population to study(in respect for the fact that we can’t choose the whole population to study in a row)</p>
 <h3 id="Central-Limit-Theorem"><a href="#Central-Limit-Theorem" class="headerlink" title="Central Limit Theorem"></a>Central Limit Theorem</h3><p>The Central Limit Theorem (CLT) is a fundamental theorem in probability theory and statistics that states that the distribution of the sum (or average) of a large number of independent, identically distributed variables will be approximately normal, regardless of the underlying distribution.</p>
 <p>More specifically, if we take a sample of $n$ observations from any population, calculate the sample’s mean, and repeat that process a large number of times, the distribution of those sample means will be normally distributed. This distribution will have the same mean as the population from which the samples were drawn, and its standard deviation (also known as the standard error) will be equal to the standard deviation of the population divided by the square root of the sample size.</p>
 <h2 id="Single-Variable-Univariate-Gaussian-Distribution-Normal-Distribution"><a href="#Single-Variable-Univariate-Gaussian-Distribution-Normal-Distribution" class="headerlink" title="Single Variable(Univariate) Gaussian Distribution(Normal Distribution)"></a>Single Variable(Univariate) Gaussian Distribution(Normal Distribution)</h2><h3 id="Definition"><a href="#Definition" class="headerlink" title="Definition"></a>Definition</h3><p>For a random variable $x$,if its <em>probability density function</em> is:</p>
 <blockquote>
-<p>$f(x)=\frac{1}{\sqrt{2\pi}\sigma}e^{-\frac{1}{2}(\frac{x-\mu}{\sigma})^2}$</p>
+<p>$f(x)&#x3D;\frac{1}{\sqrt{2\pi}\sigma}e^{-\frac{1}{2}(\frac{x-\mu}{\sigma})^2}$</p>
 </blockquote>
 <p>where $\mu$ and $\sigma$ are the mean and variance of $x$.Then we can say the variable follows the normal distribution.<br>If the variable $x$ follows the Gaussian distribution,we can denote this kind of distribution as:</p>
 <blockquote>
@@ -469,33 +469,50 @@ connected FG model [23], in part to the approximations such as GAI. Second, the 
 </blockquote>
 <h2 id="Multivariate-Normal-Distribution"><a href="#Multivariate-Normal-Distribution" class="headerlink" title="Multivariate Normal Distribution"></a>Multivariate Normal Distribution</h2><p>For a mutivariable $n\times 1$ vector $X$ distributed following the multivariate distribution,with population mean vector $\mathbf{\mu}$ and a variance-covariance matrix $\Sigma$,the PDF(possibbility density function) can be described as:</p>
 <blockquote>
-<p>$\phi(X)=\frac{|\Sigma|^{\frac{-1}{2}}}{(2\pi)^{\frac{n}{2}}}\exp{\frac{-1}{2}(X-\mathbf \mu)^T\Sigma^{-1}(X-\mathbf\mu) }$</p>
+<p>$\phi(X)&#x3D;\frac{|\Sigma|^{\frac{-1}{2}}}{(2\pi)^{\frac{n}{2}}}\exp{\frac{-1}{2}(X-\mathbf \mu)^T\Sigma^{-1}(X-\mathbf\mu) }$</p>
 </blockquote>
-<p>If $n=2$ ,then we get the <em>bivariate normal distribution</em>,resulting in a bell-shaped curve in three dimensions.</p>
+<p>If $n&#x3D;2$ ,then we get the <em>bivariate normal distribution</em>,resulting in a bell-shaped curve in three dimensions.</p>
 <h3 id="Mahalanobis-Distance"><a href="#Mahalanobis-Distance" class="headerlink" title="Mahalanobis Distance"></a>Mahalanobis Distance</h3><p>Noticably,the mahalanobis distance is a distance!In the univariate case,if it is greater than zero,then the variable is larger than mean,vice versa.<br>In the multivariate case,since the covariance matrix $\Sigma$ is always positive definite,the distance is always greater than 0!</p>
 <h4 id="In-Univariate-Normal-Distribution"><a href="#In-Univariate-Normal-Distribution" class="headerlink" title="In Univariate Normal Distribution"></a>In Univariate Normal Distribution</h4><p>This distance can be measured as:</p>
 <blockquote>
-<p>$d=\frac{x-\mu}{\sigma}$</p>
+<p>$d&#x3D;\frac{x-\mu}{\sigma}$</p>
 </blockquote>
 <h4 id="In-Multivariate-Normal-Distribution"><a href="#In-Multivariate-Normal-Distribution" class="headerlink" title="In Multivariate Normal Distribution"></a>In Multivariate Normal Distribution</h4><p>Also,this distance can be measured as:</p>
 <blockquote>
-<p>$d=\sqrt{(X-\mu)^T\Sigma^{-1}(X-\mu)}$</p>
-<h3 id="Integral-Property"><a href="#Integral-Property" class="headerlink" title="Integral Property"></a>Integral Property</h3><p>For univariate normal distribution:<br>$\frac{1}{\sqrt{2\pi}\sigma}\int_{-\infty}^{\infty}{\exp{\frac{-1}{2\sigma^2}(x-\mu)^2}}=1$</p>
+<p>$d&#x3D;\sqrt{(X-\mu)^T\Sigma^{-1}(X-\mu)}$</p>
+</blockquote>
+<h3 id="Integral-Property"><a href="#Integral-Property" class="headerlink" title="Integral Property"></a>Integral Property</h3><p>For univariate normal distribution:</p>
+<blockquote>
+<p>$\frac{1}{\sqrt{2\pi}\sigma}\int_{-\infty}^{\infty}{\exp{\frac{-1}{2\sigma^2}(x-\mu)^2}}&#x3D;1$</p>
 </blockquote>
 <p>For multivariate normal distribution:</p>
 <blockquote>
-<p>$\frac{1}{2\pi^{\frac{n}{2}}|\Sigma|^\frac{1}{2}}\int_{-\infty}^{\infty}\int_{-\infty}^{\infty}…\int_{-\infty}^{\infty}\exp{-\frac{1}{2}(x-\mu)^T\Sigma^{-1}(x-\mu)dx_1dx_2…dx_n}=1$</p>
+<p>$\frac{1}{2\pi^{\frac{n}{2}}|\Sigma|^\frac{1}{2}}\int_{-\infty}^{\infty}\int_{-\infty}^{\infty}…\int_{-\infty}^{\infty}\exp{-\frac{1}{2}(x-\mu)^T\Sigma^{-1}(x-\mu)dx_1dx_2…dx_n}&#x3D;1$</p>
 </blockquote>
-<h2 id="Diagonal-Covariance-Matrix-gt-Product-Gaussian"><a href="#Diagonal-Covariance-Matrix-gt-Product-Gaussian" class="headerlink" title="Diagonal Covariance Matrix-&gt;Product Gaussian"></a>Diagonal Covariance Matrix-&gt;Product Gaussian</h2><p>Let’s imagine a diagonal covariance matrix $\Sigma$,OK,cool!This means the variables are independent!<br>Let’s take a $2\times 2$ covariance matrix for example:<br>In this column,we define $X=(x_1,x_2)$,the variance matrix $\Sigma = [\begin{matrix}<br>\sigma_1^2 &amp; 0 \\\\<br>0 &amp; \sigma_2^2<br>\end{matrix} ]$<br>and the mean vector $\mu=(\mu_1,\mu_2)$.<br>WE can easily compute the inverse matrix $\Sigma^{-1}=[\begin{matrix}<br>\frac{1}{\sigma_1^2} &amp; 0 \\\\<br>0 &amp; \frac{1}{\sigma_2^2}<br>\end{matrix} ]$<br>In this case,we can find the PDF as:</p>
+<h2 id="Diagonal-Covariance-Matrix-Product-Gaussian"><a href="#Diagonal-Covariance-Matrix-Product-Gaussian" class="headerlink" title="Diagonal Covariance Matrix-&gt;Product Gaussian"></a>Diagonal Covariance Matrix-&gt;Product Gaussian</h2><p>Let’s imagine a diagonal covariance matrix $\Sigma$,OK,cool!This means the variables are independent!<br>Let’s take a $2\times 2$ covariance matrix for example:<br>In this column,we define $X&#x3D;(x_1,x_2)$,the variance matrix $\Sigma &#x3D; [\begin{matrix}<br>\sigma_1^2 &amp; 0 \\<br>0 &amp; \sigma_2^2<br>\end{matrix} ]$<br>and the mean vector $\mu&#x3D;(\mu_1,\mu_2)$.<br>WE can easily compute the inverse matrix $\Sigma^{-1}&#x3D;[\begin{matrix}<br>\frac{1}{\sigma_1^2} &amp; 0 \\<br>0 &amp; \frac{1}{\sigma_2^2}<br>\end{matrix} ]$<br>In this case,we can find the PDF as:</p>
 <blockquote>
-<p>$p(x;\mu,\Sigma)=\frac{1}{2\pi\sigma_1\sigma_2}\exp{(-\frac{1}{2}(x-\mu)^T\Sigma^{-1}(x-\mu))}$</p>
+<p>$p(x;\mu,\Sigma)&#x3D;\frac{1}{2\pi\sigma_1\sigma_2}\exp{(-\frac{1}{2}(x-\mu)^T\Sigma^{-1}(x-\mu))}$</p>
 </blockquote>
 <p>Further computing it,we get:</p>
 <blockquote>
-<p>$p(x;\mu,\Sigma)=\frac{1}{\sqrt{2\pi}\sigma_1}\exp{(-\frac{1}{2\sigma_1^2}(x_1-\mu_1)^2)}\frac{1}{\sqrt{2\pi}\sigma_2}\exp{(-\frac{1}{2\sigma_2^2}(x_2-\mu_2)^2)}$</p>
+<p>$p(x;\mu,\Sigma)&#x3D;\frac{1}{\sqrt{2\pi}\sigma_1}\exp{(-\frac{1}{2\sigma_1^2}(x_1-\mu_1)^2)}\frac{1}{\sqrt{2\pi}\sigma_2}\exp{(-\frac{1}{2\sigma_2^2}(x_2-\mu_2)^2)}$</p>
 </blockquote>
-<p>Further corollary shows for a n-dimensional variable vector $x$,we have:<br>$p(x;\mu,\Sigma)=\prod_{i=1}^{n}\frac{1}{\sqrt{2\pi}\sigma_{i}}\exp{(-\frac{1}{2\sigma_i^2}(x_i-\mu_i)^2)}$</p>
-<h2 id="Ellipse-Where-Does-This-Thing-Come-From"><a href="#Ellipse-Where-Does-This-Thing-Come-From" class="headerlink" title="Ellipse:Where Does This Thing Come From??"></a>Ellipse:Where Does This Thing Come From??</h2><h3 id="Isocontour-Hooray-Geography"><a href="#Isocontour-Hooray-Geography" class="headerlink" title="Isocontour(Hooray Geography!)"></a>Isocontour(Hooray Geography!)</h3>]]></content>
+<p>Further corollary shows for a n-dimensional variable vector $x$,we have:<br>$p(x;\mu,\Sigma)&#x3D;\prod_{i&#x3D;1}^{n}\frac{1}{\sqrt{2\pi}\sigma_{i}}\exp{(-\frac{1}{2\sigma_i^2}(x_i-\mu_i)^2)}$</p>
+<h2 id="Ellipse-Where-Does-This-Thing-Come-From"><a href="#Ellipse-Where-Does-This-Thing-Come-From" class="headerlink" title="Ellipse:Where Does This Thing Come From??"></a>Ellipse:Where Does This Thing Come From??</h2><h3 id="Isocontour-Hooray-Geography"><a href="#Isocontour-Hooray-Geography" class="headerlink" title="Isocontour(Hooray Geography!)"></a>Isocontour(Hooray Geography!)</h3><p>Let us take the same definition above and consider this:</p>
+<blockquote>
+<p>Let $c&#x3D;\frac{1}{2\pi\sigma_1\sigma_2}\exp(-\frac{1}{2}(\frac{x_1-\mu_1}{\sigma_1})^2-\frac{1}{2}(\frac{x_2-\mu_2}{\sigma_2})^2)$<br>$2\pi c\sigma_1\sigma_2&#x3D;\exp(-\frac{1}{2}(\frac{x_1-\mu_1}{\sigma_1})^2-\frac{1}{2}(\frac{x_2-\mu_2}{\sigma_2})^2)$<br>$\log(2\pi\sigma_1\sigma_2)&#x3D;-\frac{1}{2}(\frac{x_1-\mu_1}{\sigma_1})^2-\frac{1}{2}(\frac{x_2-\mu_2}{\sigma_2})^2$<br>$1&#x3D;\frac{(x_1-\mu_1)^2}{2\sigma_1^2\log(\frac{1}{2\pi c\sigma_1\sigma_2})}+\frac{(x_2-\mu_2)^2}{2\sigma_2^2\log(\frac{1}{2\pi c\sigma_1\sigma_2})}$</p>
+</blockquote>
+<p>Define:</p>
+<blockquote>
+<p>$r_1&#x3D;\sqrt{2\sigma_1^2\log(\frac{1}{2\pi c\sigma_1\sigma_2})}$<br>$r_2&#x3D;\sqrt{2\sigma_2^2\log(\frac{1}{2\pi c\sigma_1\sigma_2})}$</p>
+</blockquote>
+<p>An ellipse occurs!</p>
+<h3 id="Non-diagonal-Higher-Dimensional-–-Still-Symmetric"><a href="#Non-diagonal-Higher-Dimensional-–-Still-Symmetric" class="headerlink" title="Non-diagonal&#x2F;Higher Dimensional – Still Symmetric"></a>Non-diagonal&#x2F;Higher Dimensional – Still Symmetric</h3><p>For a two dimensional covariance matrix,this turns to a non-axis-aligned ellipse.<br>For a higher dimenstional one,say in the $n$-dimensional case,we get a high dimensional ellipsoids in $\mathbf R^n$</p>
+<h2 id="Linear-Transformation-This-Is-a-Matrix"><a href="#Linear-Transformation-This-Is-a-Matrix" class="headerlink" title="Linear Transformation: This Is a Matrix!"></a>Linear Transformation: This Is a Matrix!</h2><p>Here is a theorem saying:</p>
+<blockquote>
+<p>Let $X\sim \mathcal N(\mu,\Sigma)$ for some $\mu\in \mathbf R^n$ and $\Sigma\in \mathbf S_{++}^n$.Then there exists a matrix $B\in R^{n\times n}$ such that if $Z&#x3D;B^{-1}(X-\mu)$,then $Z\sim \mathcal N(0,I)$</p>
+</blockquote>
+]]></content>
       <tags>
         <tag>learning</tag>
       </tags>
