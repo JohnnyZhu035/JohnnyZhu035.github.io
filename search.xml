@@ -596,6 +596,19 @@ connected FG model [23], in part to the approximations such as GAI. Second, the 
 <blockquote>
 <p>$J&#x3D;\int\int ||\phi(y)-x||^2p(x,y)dxdy\\&#x3D;\int p^y(y)e_{cond}(y)dy$</p>
 </blockquote>
+<h3 id="The-affine-transformation-in-signal-processing"><a href="#The-affine-transformation-in-signal-processing" class="headerlink" title="The affine transformation(in signal processing)"></a>The affine transformation(in signal processing)</h3><p>For a signal $\mathbf y$ received and a certain <em>channel matrix</em> $\mathbf H$,we have:</p>
+<blockquote>
+<p>$\mathbf {y&#x3D;Hs+n}$</p>
+</blockquote>
+<p>where we suppose $\mathbf{y\in R^{N_r},s\in R^{N_t}},H\in R^{N_r\times N_t}$<br>The expectation of $\mathbf y$ is:</p>
+<blockquote>
+<p>$\mathbf {Ey&#x3D;E(Hs+n)&#x3D;HE(\mathbf s)}&#x3D;H\mu$</p>
+</blockquote>
+<p>The covariance is:</p>
+<blockquote>
+<p>$\mathbf {\Sigma_y &#x3D;E(y-\hat y)(y-\hat y)^T&#x3D;EH(s- \hat s)(s-\hat s)^TH^T}\\$<br>$&#x3D;\mathbf{H\Sigma_sH^T+\Sigma_n}$</p>
+</blockquote>
+<p>which denotes the <em>signal covariance</em> and <em>noise covariance</em></p>
 ]]></content>
       <tags>
         <tag>learning</tag>
