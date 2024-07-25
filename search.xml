@@ -614,4 +614,55 @@ connected FG model [23], in part to the approximations such as GAI. Second, the 
         <tag>learning</tag>
       </tags>
   </entry>
+  <entry>
+    <title>Continuous RV distributions</title>
+    <url>/2024/07/25/Continuous-RV-distributions/</url>
+    <content><![CDATA[<h2 id="Preface"><a href="#Preface" class="headerlink" title="Preface"></a>Preface</h2><p>In recent days of browsing the Internet for relevant learning materials,I find it good to have a better understanding of possibilities by looking at some basic concepts!Therefore,I come up with this chapter:<em>Continuous RV distributions</em>,where RV stands for random variables.</p>
+<h2 id="Continuous-Random-Variables"><a href="#Continuous-Random-Variables" class="headerlink" title="Continuous Random Variables"></a>Continuous Random Variables</h2><p>Every continuous random variable has a probability density function (PDF), instead of a probability mass function (PMF),where the limit in calculus takes place,showing in a given section,the possibility of a given event to happen is 0.</p>
+<h3 id="PDF-and-CDF"><a href="#PDF-and-CDF" class="headerlink" title="PDF and CDF"></a>PDF and CDF</h3><p>PDF:<br>define $f(x)$ as the possibility density function of $x$ so that:</p>
+<blockquote>
+<p>$\int_{-\infty}^{\infty}f(x)dx&#x3D;1$<br>$\mathbb P(x\approx q)&#x3D;\mathbb P(q-\frac{\epsilon}{2}\leq X\leq q+\frac{\epsilon}{2})\approx \epsilon f_x(q)$</p>
+</blockquote>
+<p>CDF:<br>define $F(x)$ as the cumulative distribution function so that:</p>
+<blockquote>
+<p>$F_x(w)&#x3D;\mathbb P(x\leq w)&#x3D;\int _{-\infty}^{w}{f(x)dx}$</p>
+</blockquote>
+<p>Noticably,PDF is the derivative of CDF.</p>
+<h3 id="Expectation-and-Variance"><a href="#Expectation-and-Variance" class="headerlink" title="Expectation and Variance"></a>Expectation and Variance</h3><p>The expectation of a continuous RV can be counted as follows:</p>
+<blockquote>
+<p>$\mathbb E(x)&#x3D;\int_{-\infty}^{\infty}{tf_x(t)dt}$</p>
+</blockquote>
+<p>The variance of a RV can be counted as follows:</p>
+<blockquote>
+<p>$Var(x)&#x3D;\mathbb E(x^2)-\mathbb E^2(x)$</p>
+</blockquote>
+<p>or also:</p>
+<blockquote>
+<p>$Var(x)&#x3D;\int_{-\infty}^{\infty}{(t-\mathbb E(x))f_x(t)dt}$</p>
+</blockquote>
+<h3 id="Exponential-Family"><a href="#Exponential-Family" class="headerlink" title="Exponential Family"></a>Exponential Family</h3><p>$X\sim Exp(\lambda)$,if X follows the pdf:</p>
+<blockquote>
+<p>$f_X(x)&#x3D;\begin{cases}\lambda e^{-\lambda x},x\geq 0\\0,otherwise\end{cases}$</p>
+</blockquote>
+<p>Calculating this,we know:</p>
+<blockquote>
+<p>$\mathbb E(X)&#x3D;\frac{1}{\lambda},Var(X)&#x3D;\frac{1}{\lambda^2}$</p>
+</blockquote>
+<p>The cdf of it is:</p>
+<blockquote>
+<p>$F_X(x)&#x3D;\begin{cases}1-e^{-\lambda x},x\geq 0\\0,otherwise\end{cases}$</p>
+</blockquote>
+<h3 id="The-Gamma-Gamma-RV"><a href="#The-Gamma-Gamma-RV" class="headerlink" title="The Gamma($\Gamma$) RV"></a>The Gamma($\Gamma$) RV</h3><p>$X\sim Gamma(r,\lambda)$ if and only if $X$ has the following pdf:</p>
+<blockquote>
+<p>$f_X(x)&#x3D;\begin{cases}\frac{\lambda^r}{(r-1)!}{x^{r-1}e^{-\lambda x}},x&gt;0\\0,otherwise\end{cases}$</p>
+</blockquote>
+<p>where:</p>
+<blockquote>
+<p>$\mathbb E(X)&#x3D;\frac{r}{\lambda},Var(X)&#x3D;\frac{r}{\lambda^2}$</p>
+</blockquote>
+]]></content>
+      <tags>
+        <tag>learning</tag>
+      </tags>
+  </entry>
 </search>
