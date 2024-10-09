@@ -665,4 +665,10 @@ connected FG model [23], in part to the approximations such as GAI. Second, the 
         <tag>learning</tag>
       </tags>
   </entry>
+  <entry>
+    <title>Rotation Matrix with MATLAB Code</title>
+    <url>/2024/10/09/code%E2%80%9D/</url>
+    <content><![CDATA[<h2 id="What-we-are-up-to-do-here"><a href="#What-we-are-up-to-do-here" class="headerlink" title="What we are up to do here"></a>What we are up to do here</h2><p><strong>In this blog,we will visualize how rotation matrix works</strong><br>Code first:<br><figure class="highlight plaintext"><figcaption><span>[Code to demonstrate rotation]</span></figcaption><table><tr><td class="code"><pre><span class="line">lb=-pi;</span><br><span class="line">ub=pi;</span><br><span class="line">theta=lb+(ub-lb)*rand(1);</span><br><span class="line">x=[1,1];</span><br><span class="line">%figure;</span><br><span class="line">%quiver(0,0,x(1),x(2));</span><br><span class="line">R=[cos(theta),sin(theta);sin(-theta),cos(theta)];</span><br><span class="line">x_trans=R*x&#x27;;</span><br><span class="line">disp((theta*360)/(2*pi));</span><br><span class="line">figure;</span><br><span class="line">quiver(0,0,x_trans(1),x_trans(2));</span><br><span class="line">title(&#x27;transformed angle:&#x27;,(theta*360)/(2*pi));</span><br></pre></td></tr></table></figure><br>With the code,we can plot figures of rotation,as follows:<br><strong><em>Demonstrate original vector</em></strong><br><img src="/images/OriginalVec.jpg" alt="图片" title="Original Vector"><br><strong><em>Demonstrate rotated vector</em></strong><br><img src="/images/RotatedVec.jpg" alt="图片" title="Original Vector"><br>By setting the rotation angle $\theta$ between $[-\pi,\pi]$,we can see in the example above,the vector is rotated anti-clockwise with the angle demonstrated.</p>
+]]></content>
+  </entry>
 </search>
